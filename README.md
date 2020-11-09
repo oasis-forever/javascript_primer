@@ -31,19 +31,7 @@ $ npm install --save-dev jest babel-jest babel-core@^7.0.0-bridge.0 @babel/core 
 $ npm install --save-dev @babel/plugin-transform-modules-commonjs
 ```
 
-4. Create a setting file and paste the following object.
-
-```json
-{
-  "env": {
-    "test": {
-      "plugins": [ "@babel/plugin-transform-modules-commonjs" ]
-    }
-  }
-}
-```
-
-5. Try a unittest
+4. Try a unittest
 
 ```bash
 $ npx jest
