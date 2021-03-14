@@ -1,8 +1,8 @@
 ## 1. Environment
 
 * WSL(Ubuntu 20.04.1 LTS (GNU/Linux 4.19.128-microsoft-standard x86_64))
-* node v14.8.0
-* npm 6.14.8
+* node v14.16.0
+* npm 7.6.3
 
 ## 2. Reference
 
