@@ -7,7 +7,15 @@ import {
   plus,
   minus,
   increment,
-  decrement
+  decrement,
+  strictEqualityOperator,
+  strictInequalityOperator,
+  equalityOperator,
+  inequalityOperator,
+  greater_than,
+  greater_than_or_equal_to,
+  less_than,
+  less_than_or_equal_to
 } from "../lib/operands";
 
 // Binary operators
@@ -90,4 +98,101 @@ test("Decrementation", () => {
     expect(num_1).toBe(0);
     expect(val_2).toBe(0);
     expect(num_2).toBe(0);
+});
+
+// Comparative operator
+test("Strict equality operator", () => {
+    const val_1 = strictEqualityOperator(1, 1);
+    const val_2 = strictEqualityOperator(1, "1");
+    const obj_1 = {};
+    const obj_2 = {};
+    const val_3 = strictEqualityOperator(obj_1, obj_2);
+    const val_4 = strictEqualityOperator(obj_1, obj_1);
+    expect(val_1).toBe(true);
+    expect(val_2).toBe(false);
+    expect(val_3).toBe(false);
+    expect(val_4).toBe(true);
+});
+
+test("Strict inequality operator", () => {
+    const val_1 = strictInequalityOperator(1, 1);
+    const val_2 = strictInequalityOperator(1, "1");
+    const obj_1 = {};
+    const obj_2 = {};
+    const val_3 = strictInequalityOperator(obj_1, obj_2);
+    const val_4 = strictInequalityOperator(obj_1, obj_1);
+    expect(val_1).toBe(false);
+    expect(val_2).toBe(true);
+    expect(val_3).toBe(true);
+    expect(val_4).toBe(false);
+});
+
+test("Equality operator", () => {
+    const val_1 = equalityOperator(1, 1);
+    const val_2 = equalityOperator(1, "1");
+    const val_3 = equalityOperator(0, false);
+    const val_4 = equalityOperator(0, null);
+    const val_5 = equalityOperator(null, undefined);
+    const obj_1 = {};
+    const obj_2 = {};
+    const val_6 = equalityOperator(obj_1, obj_2);
+    const val_7 = equalityOperator(obj_1, obj_1);
+    expect(val_1).toBe(true);
+    expect(val_2).toBe(true);
+    expect(val_3).toBe(true);
+    expect(val_4).toBe(false);
+    expect(val_5).toBe(true);
+    expect(val_6).toBe(false);
+    expect(val_7).toBe(true);
+});
+
+test("Inequality operator", () => {
+    const val_1 = inequalityOperator(1, 1);
+    const val_2 = inequalityOperator(1, "01");
+    const val_3 = inequalityOperator(0, false);
+    const val_4 = inequalityOperator(0, null);
+    const val_5 = inequalityOperator(null, undefined);
+    const obj_1 = {};
+    const obj_2 = {};
+    const val_6 = inequalityOperator(obj_1, obj_2);
+    const val_7 = inequalityOperator(obj_1, obj_1);
+    expect(val_1).toBe(false);
+    expect(val_2).toBe(false);
+    expect(val_3).toBe(false);
+    expect(val_4).toBe(true);
+    expect(val_5).toBe(false);
+    expect(val_6).toBe(true);
+    expect(val_7).toBe(false);
+});
+
+test("Greater than", () => {
+  const val_1 = greater_than(20, 10);
+  const val_2 = greater_than(10, 20);
+  expect(val_1).toBe(true);
+  expect(val_2).toBe(false);
+});
+
+test("Greater than or equal to", () => {
+  const val_1 = greater_than_or_equal_to(20, 10);
+  const val_2 = greater_than_or_equal_to(10, 20);
+  const val_3 = greater_than_or_equal_to(20, 20);
+  expect(val_1).toBe(true);
+  expect(val_2).toBe(false);
+  expect(val_3).toBe(true);
+});
+
+test("Less than", () => {
+  const val_1 = less_than(20, 10);
+  const val_2 = less_than(10, 20);
+  expect(val_1).toBe(false);
+  expect(val_2).toBe(true);
+});
+
+test("Less than or equal to", () => {
+  const val_1 = less_than_or_equal_to(20, 10);
+  const val_2 = less_than_or_equal_to(10, 20);
+  const val_3 = less_than_or_equal_to(20, 20);
+  expect(val_1).toBe(false);
+  expect(val_2).toBe(true);
+  expect(val_3).toBe(true);
 });
