@@ -35,39 +35,39 @@ test("Boolean", () => {
 });
 
 test("Integer", () => {
-  const int = getInteger()
+  const int = getInteger();
   expect(int).toBe(20210314);
 });
 
 test("Binary", () => {
-  const bin = getBinary()
+  const bin = getBinary();
   expect(bin).toBe(1024);
 });
 
 test("Octal", () => {
-  const oct = getOctal()
+  const oct = getOctal();
   expect(oct).toBe(420);
 });
 
 test("Hex", () => {
-  const hex = getHex()
+  const hex = getHex();
   expect(hex).toBe(12450);
 });
 
 test("Float", () => {
-  const floats = getFloat()
+  const floats = getFloat();
   expect(floats[0]).toBe(0.123);
   expect(floats[1]).toBe(200000000);
 });
 
 test("BigInt", () => {
-  const bigInts = getBigInt()
+  const bigInts = getBigInt();
   expect(bigInts[0]).toBe(9007199254740991);
   expect(bigInts[1]).toBe(9007199254740992n);
 });
 
 test("String", () => {
-  const strs = getString()
+  const strs = getString();
   expect(strs[0]).toBe("String");
   expect(strs[1]).toBe("8 o'clock");
   expect(strs[2]).toBe("8 o'clock");
@@ -76,18 +76,18 @@ test("String", () => {
 });
 
 test("Null", () => {
-  const val = getNull()
+  const val = getNull();
   expect(val).toBe(null);
 });
 
 test("Object", () => {
-  const obj = getObject()
+  const obj = getObject();
   expect(obj).toStrictEqual({ "name": "Oasist" });
   expect(obj["name"]).toBe("Oasist");
   expect(obj.name).toBe("Oasist");
 });
 
 test("Regular expression", () => {
-  const result = getRegExp()
+  const result = getRegExp();
   expect(result).toBe(true);
 });
