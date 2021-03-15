@@ -2,7 +2,7 @@ import {
   add,
   substract,
   multiply,
-  modulus_calc,
+  modulusCalc,
   raise
 } from "../lib/operands";
 
@@ -38,8 +38,8 @@ test("Devision", () => {
 });
 
 test("Modulus calculation", () => {
-    const residue1 = modulus_calc(300, 100);
-    const residue2 = modulus_calc(10, 3);
+    const residue1 = modulusCalc(300, 100);
+    const residue2 = modulusCalc(10, 3);
     expect(residue1).toBe(0);
     expect(residue2).toBe(1);
 });
