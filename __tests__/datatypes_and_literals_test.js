@@ -11,7 +11,7 @@ import {
   getNull,
   getObject,
   getRegExp
-} from "../lib/datatypes_and_literals"
+} from "../lib/datatypes_and_literals";
 
 test("Data types", () => {
   const dataTypes = getDataTypes();
