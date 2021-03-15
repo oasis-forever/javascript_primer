@@ -8,40 +8,40 @@ import {
 
 // Binary operators
 test("Addition", () => {
-    const sum1 = add(100, 200);
-    const sum2 = add(10, 0.5)
+    const sum_1 = add(100, 200);
+    const sum_2 = add(10, 0.5)
     const str  = add("Java", "Script")
-    expect(sum1).toBe(300);
-    expect(sum2).toBe(10.5);
+    expect(sum_1).toBe(300);
+    expect(sum_2).toBe(10.5);
     expect(str).toBe("JavaScript");
 });
 
 test("Substraction", () => {
-    const diff1 = substract(300, 200);
-    const diff2 = substract(10, 0.5);
-    expect(diff1).toBe(100);
-    expect(diff2).toBe(9.5);
+    const diff_1 = substract(300, 200);
+    const diff_2 = substract(10, 0.5);
+    expect(diff_1).toBe(100);
+    expect(diff_2).toBe(9.5);
 });
 
 test("Multiplication", () => {
-    const product1 = multiply(300, 200);
-    const product2 = multiply(10, 0.5);
-    expect(product1).toBe(60000);
-    expect(product2).toBe(5);
+    const product_1 = multiply(300, 200);
+    const product_2 = multiply(10, 0.5);
+    expect(product_1).toBe(60000);
+    expect(product_2).toBe(5);
 });
 
 test("Devision", () => {
-    const quotient1 = multiply(300, 200);
-    const quotient2 = multiply(10, 0.5);
-    expect(quotient1).toBe(60000);
-    expect(quotient2).toBe(5);
+    const quotient_1 = multiply(300, 200);
+    const quotient_2 = multiply(10, 0.5);
+    expect(quotient_1).toBe(60000);
+    expect(quotient_2).toBe(5);
 });
 
 test("Modulus calculation", () => {
-    const residue1 = modulusCalc(300, 100);
-    const residue2 = modulusCalc(10, 3);
-    expect(residue1).toBe(0);
-    expect(residue2).toBe(1);
+    const residue_1 = modulusCalc(300, 100);
+    const residue_2 = modulusCalc(10, 3);
+    expect(residue_1).toBe(0);
+    expect(residue_2).toBe(1);
 });
 
 test("Raise", () => {
