@@ -15,7 +15,14 @@ import {
   greater_than,
   greater_than_or_equal_to,
   less_than,
-  less_than_or_equal_to
+  less_than_or_equal_to,
+  bitAND,
+  bitOR,
+  bitXOR,
+  bitNOT,
+  leftShift,
+  rightShift,
+  zeroRightShift
 } from "../lib/operands";
 
 // Binary operators
@@ -195,4 +202,54 @@ test("Less than or equal to", () => {
   expect(val_1).toBe(false);
   expect(val_2).toBe(true);
   expect(val_3).toBe(true);
+});
+
+// Bit operators
+test("AND", () => {
+  const val_1 = bitAND(15, 9);
+  const val_2 = bitAND(0b1111, 0b1001);
+  expect(val_1).toBe(9);
+  expect(val_2).toBe(0b1001);
+});
+
+test("OR", () => {
+  const val_1 = bitOR(15, 9);
+  const val_2 = bitOR(0b1111, 0b1001);
+  expect(val_1).toBe(15);
+  expect(val_2).toBe(0b1111);
+});
+
+test("XOR", () => {
+  const val_1 = bitXOR(15, 9);
+  const val_2 = bitXOR(0b1111, 0b1001);
+  expect(val_1).toBe(6);
+  expect(val_2).toBe(0b0110);
+});
+
+test("NOT", () => {
+  const val_1 = bitNOT(15);
+  const val_2 = bitNOT(0b1111);
+  const val_3 = bitNOT(0);
+  const val_4 = bitNOT(-1);
+  expect(val_1).toBe(-16);
+  expect(val_2).toBe(-0b10000);
+  expect(val_3).toBe(-1);
+  expect(val_4).toBe(0);
+});
+
+test("Left shift", () => {
+  const val_1 = leftShift(9, 2);
+  const val_2 = leftShift(0b1111, 2);
+  expect(val_1).toBe(36);
+  expect(val_2).toBe(0b111100);
+});
+
+test("Right shift", () => {
+  const val = rightShift(-9, 2);
+  expect(val).toBe(-3);
+});
+
+test("Zero right shift", () => {
+  const val = zeroRightShift(-9, 2);
+  expect(val).toBe(1073741821);
 });
