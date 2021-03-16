@@ -206,28 +206,28 @@ test("Less than or equal to", () => {
 });
 
 // Bit operators
-test("AND", () => {
+test("Bit AND", () => {
   const val_1 = bitAND(15, 9);
   const val_2 = bitAND(0b1111, 0b1001);
   expect(val_1).toBe(9);
   expect(val_2).toBe(0b1001);
 });
 
-test("OR", () => {
+test("Bit OR", () => {
   const val_1 = bitOR(15, 9);
   const val_2 = bitOR(0b1111, 0b1001);
   expect(val_1).toBe(15);
   expect(val_2).toBe(0b1111);
 });
 
-test("XOR", () => {
+test("Bit XOR", () => {
   const val_1 = bitXOR(15, 9);
   const val_2 = bitXOR(0b1111, 0b1001);
   expect(val_1).toBe(6);
   expect(val_2).toBe(0b0110);
 });
 
-test("NOT", () => {
+test("Bit NOT", () => {
   const val_1 = bitNOT(15);
   const val_2 = bitNOT(0b1111);
   const val_3 = bitNOT(0);
