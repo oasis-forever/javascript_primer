@@ -22,7 +22,8 @@ import {
   bitNOT,
   leftShift,
   rightShift,
-  zeroRightShift
+  zeroRightShift,
+  assignObj
 } from "../lib/operands";
 
 // Binary operators
@@ -252,4 +253,12 @@ test("Right shift", () => {
 test("Zero right shift", () => {
   const val = zeroRightShift(-9, 2);
   expect(val).toBe(1073741821);
+});
+
+// Assignment operators
+test("Assign object", () => {
+  const obj = assignObj("Hayato");
+  const { name } = obj
+  const cloneName = obj.name
+  expect(name === cloneName).toBe(true);
 });
