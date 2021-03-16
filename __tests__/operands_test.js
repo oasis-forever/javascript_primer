@@ -258,7 +258,7 @@ test("Zero right shift", () => {
 // Assignment operators
 test("Assign object", () => {
   const obj = assignObj("Hayato");
-  const { name } = obj
-  const cloneName = obj.name
+  const { name } = obj;
+  const cloneName = obj.name;
   expect(name === cloneName).toBe(true);
 });
