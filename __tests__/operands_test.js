@@ -23,7 +23,13 @@ import {
   leftShift,
   rightShift,
   zeroRightShift,
-  assignObj
+  assignObj,
+  logicalAND,
+  logicalOR,
+  logicalNOT,
+  logicalDoubleNOT,
+  coalesceNullishValues,
+  ternaryOperator
 } from "../lib/operands";
 
 // Binary operators
@@ -261,4 +267,83 @@ test("Assign object", () => {
   const { name } = obj;
   const cloneName = obj.name;
   expect(name === cloneName).toBe(true);
+});
+
+// Logical operators
+test("Logical AND", () => {
+  const val_1 = logicalAND(true, "Foo");
+  const val_2 = logicalAND(false, "Foo");
+  const val_3 = logicalAND("Bar", "Foo");
+  const val_4 = logicalAND(100, "Foo");
+  const val_5 = logicalAND("", "Foo");
+  const val_6 = logicalAND(0, "Foo");
+  const val_7 = logicalAND(null, "Foo");
+  expect(val_1).toBe("Foo");
+  expect(val_2).toBe(false);
+  expect(val_3).toBe("Foo");
+  expect(val_4).toBe("Foo");
+  expect(val_5).toBe("");
+  expect(val_6).toBe(0);
+  expect(val_7).toBe(null);
+});
+
+test("Logical OR", () => {
+  const val_1 = logicalOR(true, "Foo");
+  const val_2 = logicalOR(false, "Foo");
+  const val_3 = logicalOR("Bar", "Foo");
+  const val_4 = logicalOR(100, "Foo");
+  const val_5 = logicalOR("", "Foo");
+  const val_6 = logicalOR(0, "Foo");
+  const val_7 = logicalOR(null, "Foo");
+  expect(val_1).toBe(true);
+  expect(val_2).toBe("Foo");
+  expect(val_3).toBe("Bar");
+  expect(val_4).toBe(100);
+  expect(val_5).toBe("Foo");
+  expect(val_6).toBe("Foo");
+  expect(val_7).toBe("Foo");
+});
+
+test("Logical NOT", () => {
+  const val_1 = logicalNOT(true);
+  const val_2 = logicalNOT(false);
+  const val_3 = logicalNOT(0);
+  const val_4 = logicalNOT("");
+  const val_5 = logicalNOT(null);
+  const val_6 = logicalNOT(100);
+  const val_7 = logicalNOT("Foo");
+  expect(val_1).toBe(false);
+  expect(val_2).toBe(true);
+  expect(val_3).toBe(true);
+  expect(val_4).toBe(true);
+  expect(val_5).toBe(true);
+  expect(val_6).toBe(false);
+  expect(val_7).toBe(false);
+});
+
+test("Logical double NOT", () => {
+  const val = logicalNOT("Foo");
+  expect(val).toBe(false);
+});
+
+test("Coalesce nullish values", () => {
+  const val_1 = coalesceNullishValues(null, "Foo");
+  const val_2 = coalesceNullishValues(undefined, "Foo");
+  const val_3 = coalesceNullishValues(true, "Foo");
+  const val_4 = coalesceNullishValues(false, "Foo");
+  const val_5 = coalesceNullishValues(0, "Foo");
+  const val_6 = coalesceNullishValues("Bar", "Foo");
+  expect(val_1).toBe("Foo");
+  expect(val_2).toBe("Foo");
+  expect(val_3).toBe(true);
+  expect(val_4).toBe(false);
+  expect(val_5).toBe(0);
+  expect(val_6).toBe("Bar");
+});
+
+test("Ternary operator", () => {
+  const val_1 = ternaryOperator(true, "Foo", "Bar");
+  const val_2 = ternaryOperator(false, "Foo", "Bar");
+  expect(val_1).toBe("Foo");
+  expect(val_2).toBe("Bar");
 });
