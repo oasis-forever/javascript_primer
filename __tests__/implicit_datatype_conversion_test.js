@@ -6,7 +6,8 @@ import {
   addMultipulTypes,
   convertToBoolean,
   convertToString,
-  convertToNumber
+  convertToNumber,
+  parseInteger
 } from "../lib/implicit_datatype_conversion";
 
 test("Num plus boolean", () => {
@@ -95,4 +96,13 @@ test("Convert to number", () => {
   const num_2 = convertToNumber("Foo");
   expect(num_1).toBe(42);
   expect(Number.isNaN(num_2)).toBe(true);
+});
+
+test("Parse integer", () => {
+  const int_1 = parseInteger("1");
+  const int_2 = parseInteger("42px");
+  const int_3 = parseInteger("10.5");
+  expect(int_1).toBe(1);
+  expect(int_2).toBe(42);
+  expect(int_3).toBe(10);
 });
