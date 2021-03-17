@@ -4,7 +4,6 @@ import {
   addString
 } from "../lib/implicit_datatype_conversion";
 
-// Num plus boolean
 test("Num plus boolean", () => {
   const sum_1 = addBoolean(1, true);
   const sum_2 = addBoolean(1, false);
@@ -12,7 +11,6 @@ test("Num plus boolean", () => {
   expect(sum_2).toBe(1);
 });
 
-// Logical equal
 test("Logical equal", () => {
   const result_1 = logicalEqual(1, true);
   const result_2 = logicalEqual(0, false);
@@ -26,7 +24,6 @@ test("Logical equal", () => {
   expect(result_5).toBe(true);
 });
 
-// Add string
 test("Add string", () => {
   const result_1 = addString(1, "1");
   const result_2 = addString("1", "1");
