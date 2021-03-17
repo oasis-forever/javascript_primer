@@ -2,7 +2,8 @@ import {
   addBoolean,
   logicalEqual,
   addString,
-  substractString
+  substractString,
+  addMultipulStrings
 } from "../lib/implicit_datatype_conversion";
 
 test("Num plus boolean", () => {
@@ -37,4 +38,13 @@ test("Substract string", () => {
   const result_2 = substractString("2", "1");
   expect(result_1).toBe(1);
   expect(result_2).toBe(1);
+});
+
+test("Add multipul strings", () => {
+  const result_1 = addMultipulStrings(1, 2, "3");
+  const result_2 = addMultipulStrings("1", 2, 3);
+  const result_3 = addMultipulStrings(1, "2", 3);
+  expect(result_1).toBe("33");
+  expect(result_2).toBe("123");
+  expect(result_3).toBe("123");
 });
