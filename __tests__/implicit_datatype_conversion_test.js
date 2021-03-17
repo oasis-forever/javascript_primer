@@ -49,9 +49,13 @@ test("Add multipul types", () => {
   const result_1 = addMultipulTypes(1, 2, "3");
   const result_2 = addMultipulTypes("1", 2, 3);
   const result_3 = addMultipulTypes(1, "2", 3);
+  const result_4 = addMultipulTypes(1, undefined, 3);
+  const result_5 = addMultipulTypes(1, NaN, 3);
   expect(result_1).toBe("33");
   expect(result_2).toBe("123");
   expect(result_3).toBe("123");
+  expect(result_4).toBe(NaN);
+  expect(result_5).toBe(NaN);
 });
 
 test("Convert to boolean", () => {
