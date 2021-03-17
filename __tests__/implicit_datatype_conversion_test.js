@@ -52,15 +52,17 @@ test("Add multipul strings", () => {
 });
 
 test("Convert to boolean", () => {
+  // Non falsy
   const result_1 = convertToBoolean("string");
   const result_2 = convertToBoolean(1);
   const result_3 = convertToBoolean({});
-  const result_4 = convertToBoolean(0);
-  const result_5 = convertToBoolean("");
-  const result_6 = convertToBoolean(null);
   expect(result_1).toBe(true);
   expect(result_2).toBe(true);
   expect(result_3).toBe(true);
+  // Falsy
+  const result_4 = convertToBoolean(0);
+  const result_5 = convertToBoolean("");
+  const result_6 = convertToBoolean(null);
   expect(result_4).toBe(false);
   expect(result_5).toBe(false);
   expect(result_6).toBe(false);
