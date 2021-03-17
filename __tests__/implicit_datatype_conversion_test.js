@@ -31,21 +31,21 @@ test("Logical equal", () => {
   expect(result_5).toBe(true);
 });
 
-test("Add string", () => {
+test("Add another type", () => {
   const result_1 = addAnotherType(1, "1");
   const result_2 = addAnotherType("1", "1");
   expect(result_1).toBe("11");
   expect(result_2).toBe("11");
 });
 
-test("Substract string", () => {
+test("Substract another type", () => {
   const result_1 = substractAnotherType(2, "1");
   const result_2 = substractAnotherType("2", "1");
   expect(result_1).toBe(1);
   expect(result_2).toBe(1);
 });
 
-test("Add multipul strings", () => {
+test("Add multipul types", () => {
   const result_1 = addMultipulTypes(1, 2, "3");
   const result_2 = addMultipulTypes("1", 2, 3);
   const result_3 = addMultipulTypes(1, "2", 3);
