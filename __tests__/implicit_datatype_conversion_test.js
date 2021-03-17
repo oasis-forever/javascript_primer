@@ -4,7 +4,8 @@ import {
   addString,
   substractString,
   addMultipulStrings,
-  convertToBoolean
+  convertToBoolean,
+  convertToString
 } from "../lib/implicit_datatype_conversion";
 
 test("Num plus boolean", () => {
@@ -63,4 +64,25 @@ test("Convert to boolean", () => {
   expect(result_4).toBe(false);
   expect(result_5).toBe(false);
   expect(result_6).toBe(false);
+});
+
+test("Convert to string", () => {
+  // Primitive
+  const result_1 = convertToString("String");
+  const result_2 = convertToString(true);
+  const result_3 = convertToString(null);
+  const result_4 = convertToString(undefined);
+  const result_5 = convertToString(Symbol("Symbol"));
+  expect(result_1).toBe("String");
+  expect(result_2).toBe("true");
+  expect(result_3).toBe("null");
+  expect(result_4).toBe("undefined");
+  expect(result_5).toBe("Symbol(Symbol)");
+  // Non primitive
+  const result_6 = convertToString([1, 2, 3]);
+  const result_7 = convertToString({ key: "value" });
+  const result_8 = convertToString(function() {});
+  expect(result_6).toBe("1,2,3");
+  expect(result_7).toBe("[object Object]");
+  expect(result_8).toBe("function () {}");
 });
