@@ -7,7 +7,8 @@ import {
   convertToBoolean,
   convertToString,
   convertToNumber,
-  parseInteger
+  parseInteger,
+  parseFloat
 } from "../lib/implicit_datatype_conversion";
 
 test("Num plus boolean", () => {
@@ -105,4 +106,13 @@ test("Parse integer", () => {
   expect(int_1).toBe(1);
   expect(int_2).toBe(42);
   expect(int_3).toBe(10);
+});
+
+test("Parse float", () => {
+  const float_1 = parseFloat("1");
+  const float_2 = parseFloat("42.5px");
+  const float_3 = parseFloat("10.5");
+  expect(float_1).toBe(1);
+  expect(float_2).toBe(42.5);
+  expect(float_3).toBe(10.5);
 });
