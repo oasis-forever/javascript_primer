@@ -1,6 +1,7 @@
 import {
   addBoolean,
-  logicalEqual
+  logicalEqual,
+  addString
 } from "../lib/implicit_datatype_conversion";
 
 // Num plus boolean
@@ -23,4 +24,12 @@ test("Logical equal", () => {
   expect(result_3).toBe(true);
   expect(result_4).toBe(true);
   expect(result_5).toBe(true);
+});
+
+// Add string
+test("Add string", () => {
+  const result_1 = addString(1, "1");
+  const result_2 = addString("1", "1");
+  expect(result_1).toBe("11");
+  expect(result_2).toBe("11");
 });
