@@ -3,7 +3,8 @@ import {
   logicalEqual,
   addString,
   substractString,
-  addMultipulStrings
+  addMultipulStrings,
+  convertToBoolean
 } from "../lib/implicit_datatype_conversion";
 
 test("Num plus boolean", () => {
@@ -47,4 +48,19 @@ test("Add multipul strings", () => {
   expect(result_1).toBe("33");
   expect(result_2).toBe("123");
   expect(result_3).toBe("123");
+});
+
+test("Convert to boolean", () => {
+  const result_1 = convertToBoolean("string");
+  const result_2 = convertToBoolean(1);
+  const result_3 = convertToBoolean({});
+  const result_4 = convertToBoolean(0);
+  const result_5 = convertToBoolean("");
+  const result_6 = convertToBoolean(null);
+  expect(result_1).toBe(true);
+  expect(result_2).toBe(true);
+  expect(result_3).toBe(true);
+  expect(result_4).toBe(false);
+  expect(result_5).toBe(false);
+  expect(result_6).toBe(false);
 });
