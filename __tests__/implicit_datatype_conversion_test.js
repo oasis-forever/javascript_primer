@@ -1,9 +1,9 @@
 import {
   addBoolean,
   logicalEqual,
-  addString,
-  substractString,
-  addMultipulStrings,
+  addAnotherType,
+  substractAnotherType,
+  addMultipulTypes,
   convertToBoolean,
   convertToString
 } from "../lib/implicit_datatype_conversion";
@@ -29,23 +29,23 @@ test("Logical equal", () => {
 });
 
 test("Add string", () => {
-  const result_1 = addString(1, "1");
-  const result_2 = addString("1", "1");
+  const result_1 = addAnotherType(1, "1");
+  const result_2 = addAnotherType("1", "1");
   expect(result_1).toBe("11");
   expect(result_2).toBe("11");
 });
 
 test("Substract string", () => {
-  const result_1 = substractString(2, "1");
-  const result_2 = substractString("2", "1");
+  const result_1 = substractAnotherType(2, "1");
+  const result_2 = substractAnotherType("2", "1");
   expect(result_1).toBe(1);
   expect(result_2).toBe(1);
 });
 
 test("Add multipul strings", () => {
-  const result_1 = addMultipulStrings(1, 2, "3");
-  const result_2 = addMultipulStrings("1", 2, 3);
-  const result_3 = addMultipulStrings(1, "2", 3);
+  const result_1 = addMultipulTypes(1, 2, "3");
+  const result_2 = addMultipulTypes("1", 2, 3);
+  const result_3 = addMultipulTypes(1, "2", 3);
   expect(result_1).toBe("33");
   expect(result_2).toBe("123");
   expect(result_3).toBe("123");
