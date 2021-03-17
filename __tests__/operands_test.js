@@ -9,9 +9,9 @@ import {
   increment,
   decrement,
   strictEqualityOperator,
-  strictInequalityOperator,
-  equalityOperator,
-  inequalityOperator,
+  strictInequalOperator,
+  equalOperator,
+  inequalOperator,
   greater_than,
   greater_than_or_equal_to,
   less_than,
@@ -129,12 +129,12 @@ test("Strict equality operator", () => {
 });
 
 test("Strict inequality operator", () => {
-    const result_1 = strictInequalityOperator(1, 1);
-    const result_2 = strictInequalityOperator(1, "1");
+    const result_1 = strictInequalOperator(1, 1);
+    const result_2 = strictInequalOperator(1, "1");
     const obj_1 = {};
     const obj_2 = {};
-    const result_3 = strictInequalityOperator(obj_1, obj_2);
-    const result_4 = strictInequalityOperator(obj_1, obj_1);
+    const result_3 = strictInequalOperator(obj_1, obj_2);
+    const result_4 = strictInequalOperator(obj_1, obj_1);
     expect(result_1).toBe(false);
     expect(result_2).toBe(true);
     expect(result_3).toBe(true);
@@ -142,15 +142,15 @@ test("Strict inequality operator", () => {
 });
 
 test("Equality operator", () => {
-    const result_1 = equalityOperator(1, 1);
-    const result_2 = equalityOperator(1, "1");
-    const result_3 = equalityOperator(0, false);
-    const result_4 = equalityOperator(0, null);
-    const result_5 = equalityOperator(null, undefined);
+    const result_1 = equalOperator(1, 1);
+    const result_2 = equalOperator(1, "1");
+    const result_3 = equalOperator(0, false);
+    const result_4 = equalOperator(0, null);
+    const result_5 = equalOperator(null, undefined);
     const obj_1 = {};
     const obj_2 = {};
-    const result_6 = equalityOperator(obj_1, obj_2);
-    const result_7 = equalityOperator(obj_1, obj_1);
+    const result_6 = equalOperator(obj_1, obj_2);
+    const result_7 = equalOperator(obj_1, obj_1);
     expect(result_1).toBe(true);
     expect(result_2).toBe(true);
     expect(result_3).toBe(true);
@@ -161,15 +161,15 @@ test("Equality operator", () => {
 });
 
 test("Inequality operator", () => {
-    const result_1 = inequalityOperator(1, 1);
-    const result_2 = inequalityOperator(1, "01");
-    const result_3 = inequalityOperator(0, false);
-    const result_4 = inequalityOperator(0, null);
-    const result_5 = inequalityOperator(null, undefined);
+    const result_1 = inequalOperator(1, 1);
+    const result_2 = inequalOperator(1, "01");
+    const result_3 = inequalOperator(0, false);
+    const result_4 = inequalOperator(0, null);
+    const result_5 = inequalOperator(null, undefined);
     const obj_1 = {};
     const obj_2 = {};
-    const result_6 = inequalityOperator(obj_1, obj_2);
-    const result_7 = inequalityOperator(obj_1, obj_1);
+    const result_6 = inequalOperator(obj_1, obj_2);
+    const result_7 = inequalOperator(obj_1, obj_1);
     expect(result_1).toBe(false);
     expect(result_2).toBe(false);
     expect(result_3).toBe(false);
