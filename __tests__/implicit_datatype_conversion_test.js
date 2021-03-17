@@ -53,38 +53,38 @@ test("Add multipul strings", () => {
 
 test("Convert to boolean", () => {
   // Non falsy
-  const result_1 = convertToBoolean("string");
-  const result_2 = convertToBoolean(1);
-  const result_3 = convertToBoolean({});
-  expect(result_1).toBe(true);
-  expect(result_2).toBe(true);
-  expect(result_3).toBe(true);
+  const bool_1 = convertToBoolean("string");
+  const bool_2 = convertToBoolean(1);
+  const bool_3 = convertToBoolean({});
+  expect(bool_1).toBe(true);
+  expect(bool_2).toBe(true);
+  expect(bool_3).toBe(true);
   // Falsy
-  const result_4 = convertToBoolean(0);
-  const result_5 = convertToBoolean("");
-  const result_6 = convertToBoolean(null);
-  expect(result_4).toBe(false);
-  expect(result_5).toBe(false);
-  expect(result_6).toBe(false);
+  const bool_4 = convertToBoolean(0);
+  const bool_5 = convertToBoolean("");
+  const bool_6 = convertToBoolean(null);
+  expect(bool_4).toBe(false);
+  expect(bool_5).toBe(false);
+  expect(bool_6).toBe(false);
 });
 
 test("Convert to string", () => {
   // Primitive
-  const result_1 = convertToString("String");
-  const result_2 = convertToString(true);
-  const result_3 = convertToString(null);
-  const result_4 = convertToString(undefined);
-  const result_5 = convertToString(Symbol("Symbol"));
-  expect(result_1).toBe("String");
-  expect(result_2).toBe("true");
-  expect(result_3).toBe("null");
-  expect(result_4).toBe("undefined");
-  expect(result_5).toBe("Symbol(Symbol)");
+  const str_1 = convertToString("String");
+  const str_2 = convertToString(true);
+  const str_3 = convertToString(null);
+  const str_4 = convertToString(undefined);
+  const str_5 = convertToString(Symbol("Symbol"));
+  expect(str_1).toBe("String");
+  expect(str_2).toBe("true");
+  expect(str_3).toBe("null");
+  expect(str_4).toBe("undefined");
+  expect(str_5).toBe("Symbol(Symbol)");
   // Non primitive
-  const result_6 = convertToString([1, 2, 3]);
-  const result_7 = convertToString({ key: "value" });
-  const result_8 = convertToString(function() {});
-  expect(result_6).toBe("1,2,3");
-  expect(result_7).toBe("[object Object]");
-  expect(result_8).toBe("function () {}");
+  const str_6 = convertToString([1, 2, 3]);
+  const str_7 = convertToString({ key: "value" });
+  const str_8 = convertToString(function() {});
+  expect(str_6).toBe("1,2,3");
+  expect(str_7).toBe("[object Object]");
+  expect(str_8).toBe("function () {}");
 });
