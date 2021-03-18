@@ -1,14 +1,16 @@
 import {
   defaultArgFunc,
   falsyAcceptiveFunc,
-  falsyRejectingFunc
+  falsyRejectingFunc,
+  restArgsFunc1,
+  restArgsFunc2,
+  argsSpreadFunc
 } from "../lib/functions_and_statements";
 
 // Fuxntions dealing with a default argument
 test("Fuction with default argument", () =>{
   const text_1 = defaultArgFunc("string");
   const text_2 = defaultArgFunc("string", "Custom ");
-  expect(text_1).toBe("Default string")
   expect(text_1).toBe("Default string");
   expect(text_2).toBe("Custom string");
 });
@@ -57,4 +59,24 @@ test("Fuction rejecting a falsy value", () =>{
   expect(text_7).toBe("0string");
   expect(text_8).toBe("NaNstring");
   expect(text_9).toBe("string");
+});
+
+// Rest parameters
+test("Fuction accpetive to multiple arguements as an array", () =>{
+  const nums = restArgsFunc1(1, 2, 3);
+  expect(nums).toStrictEqual([1, 2, 3]);
+});
+
+test("Fuction accpetive to a arguement and multiple ones as an array", () =>{
+  const nums = restArgsFunc2(1, 2, 3);
+  expect(nums[0]).toBe(1);
+  expect(nums[1]).toStrictEqual([2, 3]);
+});
+
+test("Fuction accpetive to multiple arguemnts with spread systax", () =>{
+  const numsArray = [1, 2, 3]
+  const nums = argsSpreadFunc(...numsArray)
+  expect(nums[0]).toBe(1);
+  expect(nums[1]).toBe(2);
+  expect(nums[2]).toBe(3);
 });
