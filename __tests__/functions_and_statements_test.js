@@ -4,7 +4,10 @@ import {
   falsyRejectingFunc,
   restArgsFunc1,
   restArgsFunc2,
-  argsSpreadFunc
+  argsSpreadFunc,
+  printUserId1,
+  printUserId2,
+  printUserId3
 } from "../lib/functions_and_statements";
 
 // Fuxntions dealing with a default argument
@@ -79,4 +82,24 @@ test("Fuction accpetive to multiple arguemnts with spread systax", () =>{
   expect(nums[0]).toBe(1);
   expect(nums[1]).toBe(2);
   expect(nums[2]).toBe(3);
+});
+
+// Destructuring assignment
+test("Destructuring assignment 1", () =>{
+  const user = { "id": 1}
+  const userID = printUserId1(user)
+  expect(userID).toBe(1)
+});
+
+test("Destructuring assignment 2", () =>{
+  const user = { "id": 1}
+  const { id } = user
+  const userID = printUserId2(id)
+  expect(userID).toBe(1)
+});
+
+test("Destructuring assignment 3", () =>{
+  const user = { "id": 1}
+  const userID = printUserId3(user)
+  expect(userID).toBe(1)
 });
