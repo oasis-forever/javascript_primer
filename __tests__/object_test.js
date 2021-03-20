@@ -31,9 +31,15 @@ test("Get language 1", () => {
     en: "English",
     ja: "Japanese"
   }
+  const keys = Object.keys(langs)
+  const vals = Object.values(langs)
+  const entries = Object.entries(langs)
   const langsArr = getLanguages1(langs);
   const english   = langsArr[0];
   const japanese  = langsArr[1];
+  expect(keys).toStrictEqual(["en", "ja"]);
+  expect(vals).toStrictEqual(["English", "Japanese"]);
+  expect(entries).toStrictEqual([["en", "English"], ["ja", "Japanese"]]);
   expect(english).toBe("English");
   expect(japanese).toBe("Japanese");
   // Property presence
@@ -56,9 +62,15 @@ test("Get language 2", () => {
     en: "English",
     ja: "Japanese"
   }
+  const keys = Object.keys(langs)
+  const vals = Object.values(langs)
+  const entries = Object.entries(langs)
   const langsArr = getLanguages2(langs);
   const english   = langsArr[0];
   const japanese  = langsArr[1];
+  expect(keys).toStrictEqual(["en", "ja"]);
+  expect(vals).toStrictEqual(["English", "Japanese"]);
+  expect(entries).toStrictEqual([["en", "English"], ["ja", "Japanese"]]);
   expect(english).toBe("English");
   expect(japanese).toBe("Japanese");
   // Property presence
