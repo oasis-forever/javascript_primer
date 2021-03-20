@@ -72,7 +72,7 @@ test("Modulus calculation", () => {
 
 test("Raise", () => {
     const result = raise(4, 4);
-    expect(val).toBe(256);
+    expect(result).toBe(256);
 });
 
 // Unary operators
@@ -253,17 +253,19 @@ test("Left shift", () => {
 
 test("Right shift", () => {
   const result = rightShift(-9, 2);
-  expect(val).toBe(-3);
+  expect(result).toBe(-3);
 });
 
 test("Zero right shift", () => {
   const result = zeroRightShift(-9, 2);
-  expect(val).toBe(1073741821);
+  expect(result).toBe(1073741821);
 });
 
 // Assignment operators
 test("Assign object", () => {
-  const obj = assignObj("Hayato");
+  const key = "name";
+  const val = "Oasist";
+  const obj = assignObj(key, val);
   const { name } = obj;
   const cloneName = obj.name;
   expect(name === cloneName).toBe(true);
@@ -323,7 +325,7 @@ test("Logical NOT", () => {
 
 test("Logical double NOT", () => {
   const result = logicalNOT("Foo");
-  expect(val).toBe(false);
+  expect(result).toBe(false);
 });
 
 test("Coalesce nullish values", () => {
