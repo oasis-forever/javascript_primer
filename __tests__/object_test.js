@@ -30,9 +30,9 @@ test("Get language 1", () => {
     en: "English",
     ja: "Japanese"
   }
-  const langs_arr = getLanguages1(langs);
-  const english   = langs_arr[0];
-  const japanese  = langs_arr[1];
+  const langsArr = getLanguages1(langs);
+  const english   = langsArr[0];
+  const japanese  = langsArr[1];
   expect(english).toBe("English");
   expect(japanese).toBe("Japanese");
 });
@@ -42,9 +42,9 @@ test("Get language 2", () => {
     en: "English",
     ja: "Japanese"
   }
-  const langs_arr = getLanguages2(langs);
-  const english   = langs_arr[0];
-  const japanese  = langs_arr[1];
+  const langsArr = getLanguages2(langs);
+  const english   = langsArr[0];
+  const japanese  = langsArr[1];
   expect(english).toBe("English");
   expect(japanese).toBe("Japanese");
 });
