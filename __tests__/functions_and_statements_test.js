@@ -5,9 +5,9 @@ import {
   restArgsFunc1,
   restArgsFunc2,
   argsSpreadFunc,
-  printUserId1,
-  printUserId2,
-  printUserId3
+  returnUserId1,
+  returnUserId2,
+  returnUserId3
 } from "../lib/functions_and_statements";
 
 // Fuxntions dealing with a default argument
@@ -87,19 +87,19 @@ test("Fuction accpetive to multiple arguemnts with spread systax", () =>{
 // Destructuring assignment
 test("Destructuring assignment 1", () =>{
   const user = { "id": 1}
-  const userID = printUserId1(user)
+  const userID = returnUserId1(user)
   expect(userID).toBe(1)
 });
 
 test("Destructuring assignment 2", () =>{
   const user = { "id": 1}
   const { id } = user
-  const userID = printUserId2(id)
+  const userID = returnUserId2(id)
   expect(userID).toBe(1)
 });
 
 test("Destructuring assignment 3", () =>{
   const user = { "id": 1}
-  const userID = printUserId3(user)
+  const userID = returnUserId3(user)
   expect(userID).toBe(1)
 });
