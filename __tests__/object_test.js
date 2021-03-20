@@ -120,13 +120,13 @@ test("Get nested property", () => {
 test("Merge objects 1", () => {
   const objA = { a: 1, b: 2};
   const objB = { c: 3, d: 4};
-  const mergedObj = mergeObjects1(objA, objB)
+  const mergedObj = mergeObjects1(objA, objB);
   expect(mergedObj).toStrictEqual({ a: 1, b: 2, c: 3, d: 4})
 });
 
 test("Merge objects 2", () => {
   const objA = { a: 1, b: 2};
   const objB = { c: 3, d: 4};
-  const mergedObj = mergeObjects2(objA, objB)
+  const mergedObj = mergeObjects2(objA, objB);
   expect(mergedObj).toStrictEqual({ a: 1, b: 2, c: 3, d: 4})
 });
