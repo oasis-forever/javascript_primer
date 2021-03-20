@@ -9,7 +9,9 @@ import {
   evenNums2,
   evenNums3,
   getOnjectProperties1,
-  getOnjectProperties2
+  getOnjectProperties2,
+  addInForOf,
+  addInReduce
 } from "../lib/loops";
 
 // While
@@ -88,4 +90,17 @@ test("Object.keys", () => {
   };
   const properties = getOnjectProperties2(obj);
   expect(properties).toStrictEqual(["key: a, val: 1", "key: b, val: 2", "key: c, val: 3"]);
+});
+
+// for...of
+test("Add in for...of", () => {
+  const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const sum  = addInForOf(nums);
+  expect(sum).toBe(55)
+});
+
+test("Add in reduce", () => {
+  const nums  = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const total = addInReduce(nums);
+  expect(total).toBe(55)
 });
