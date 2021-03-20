@@ -2,7 +2,9 @@ import {
   getUserName1,
   getUserName2,
   getLanguages1,
-  getLanguages2
+  getLanguages2,
+  addProperty1,
+  addProperty2
 } from "../lib/object";
 
 // Access properties
@@ -45,4 +47,19 @@ test("Get language 2", () => {
   const japanese  = langs_arr[1];
   expect(english).toBe("English");
   expect(japanese).toBe("Japanese");
+});
+
+// Add property
+test("Add property 1", () => {
+  const key  = "name";
+  const val  = "Oasist";
+  const user = addProperty1(key, val);
+  expect(user).toStrictEqual({ name: "Oasist" })
+});
+
+test("Add property 2", () => {
+  const key  = "name";
+  const val  = "Oasist";
+  const user = addProperty2(key, val);
+  expect(user).toStrictEqual({ name: "Oasist" })
 });
