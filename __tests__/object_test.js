@@ -7,7 +7,9 @@ import {
   addProperty2,
   getProgrammingLanguages,
   mergeObjects1,
-  mergeObjects2
+  mergeObjects2,
+  shallowClone,
+  deepClone
 } from "../lib/object";
 
 // Access properties
@@ -129,4 +131,27 @@ test("Merge objects 2", () => {
   const objB = { c: 3, d: 4};
   const mergedObj = mergeObjects2(objA, objB);
   expect(mergedObj).toStrictEqual({ a: 1, b: 2, c: 3, d: 4})
+});
+
+// Clone
+test("Shallow clone", () => {
+  const obj = {
+      level: 1,
+      nest: {
+          level: 2
+      },
+  };
+  const cloneObj = shallowClone(obj);
+  expect(obj.nest === cloneObj.nest).toBe(true);
+});
+
+test("Deep clone", () => {
+  const obj = {
+      level: 1,
+      nest: {
+          level: 2
+      },
+  };
+  const cloneObj = deepClone(obj);
+  expect(obj.nest === cloneObj.nest).toBe(false);
 });
