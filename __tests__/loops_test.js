@@ -7,7 +7,9 @@ import {
   isEvenIncluded2,
   evenNums1,
   evenNums2,
-  evenNums3
+  evenNums3,
+  getOnjectProperties1,
+  getOnjectProperties2
 } from "../lib/loops";
 
 // While
@@ -32,7 +34,7 @@ test("Add in for", () => {
 test("Add in for", () => {
   const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   const sum  = addInForEach(nums);
-  expect(sum).toBe(55);
+  expect(sum).toBe(55)
 });
 
 // Break loop
@@ -65,4 +67,25 @@ test("Continue loop 3", () => {
   const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
   const evenNumsArray = evenNums3(nums);
   expect(evenNumsArray).toStrictEqual([2, 4, 6, 8, 10]);
+});
+
+// for...in
+test("for...in", () => {
+  const obj = {
+    "a": 1,
+    "b": 2,
+    "c": 3
+  };
+  const properties = getOnjectProperties1(obj);
+  expect(properties).toStrictEqual(["key: a, val: 1", "key: b, val: 2", "key: c, val: 3"]);
+});
+
+test("Object.keys", () => {
+  const obj = {
+    "a": 1,
+    "b": 2,
+    "c": 3
+  };
+  const properties = getOnjectProperties2(obj);
+  expect(properties).toStrictEqual(["key: a, val: 1", "key: b, val: 2", "key: c, val: 3"]);
 });
