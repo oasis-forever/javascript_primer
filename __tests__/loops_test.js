@@ -1,7 +1,8 @@
 import {
   addInWhile1,
   addInWhile2,
-  addInFor
+  addInFor,
+  addInForEach
 } from "../lib/loops";
 
 // While
@@ -18,6 +19,6 @@ test("Add in while 2", () => {
 // For
 test("Add in for", () => {
   const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-  const sum  = addInFor(nums);
+  const sum  = addInForEach(nums);
   expect(sum).toBe(55);
 });
