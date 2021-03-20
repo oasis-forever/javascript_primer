@@ -35,6 +35,9 @@ test("Get language 1", () => {
   const japanese  = langsArr[1];
   expect(english).toBe("English");
   expect(japanese).toBe("Japanese");
+  // Delete property
+  delete langs.en;
+  expect(langs).toStrictEqual({ ja: "Japanese" });
 });
 
 test("Get language 2", () => {
@@ -47,6 +50,9 @@ test("Get language 2", () => {
   const japanese  = langsArr[1];
   expect(english).toBe("English");
   expect(japanese).toBe("Japanese");
+  // Delete property
+  delete langs.ja;
+  expect(langs).toStrictEqual({ en: "English" });
 });
 
 // Add property
