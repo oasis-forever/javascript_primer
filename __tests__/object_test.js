@@ -4,7 +4,8 @@ import {
   getLanguages1,
   getLanguages2,
   addProperty1,
-  addProperty2
+  addProperty2,
+  getProgrammingLanguages
 } from "../lib/object";
 
 // Access properties
@@ -88,4 +89,15 @@ test("Add property 2", () => {
   const val  = "Oasist";
   const user = addProperty2(key, val);
   expect(user).toStrictEqual({ name: "Oasist" })
+});
+
+// Optional chaining operator
+test("Get nested property", () => {
+  const pLangs = getProgrammingLanguages();
+  const staticLang  = pLangs?.["staticLang"]
+  const dynamicLang = pLangs?.["dynamicLang"]
+  const nonExistent = pLangs?.markup?.foo
+  expect(staticLang).toStrictEqual(["C", "C++", "Java"])
+  expect(dynamicLang).toStrictEqual(["Python", "Python", "PHP", "JavaScript"])
+  expect(nonExistent).toBe(undefined)
 });
