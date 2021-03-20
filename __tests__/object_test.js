@@ -35,9 +35,19 @@ test("Get language 1", () => {
   const japanese  = langsArr[1];
   expect(english).toBe("English");
   expect(japanese).toBe("Japanese");
+  // Property presence
+  expect("en" in langs).toBe(true);
+  expect(langs.hasOwnProperty("en")).toBe(true);
+  expect("ja" in langs).toBe(true);
+  expect(langs.hasOwnProperty("ja")).toBe(true);
   // Delete property
   delete langs.en;
   expect(langs).toStrictEqual({ ja: "Japanese" });
+  // Property presence
+  expect("en" in langs).toBe(false);
+  expect(langs.hasOwnProperty("en")).toBe(false);
+  expect("ja" in langs).toBe(true);
+  expect(langs.hasOwnProperty("ja")).toBe(true);
 });
 
 test("Get language 2", () => {
@@ -50,9 +60,19 @@ test("Get language 2", () => {
   const japanese  = langsArr[1];
   expect(english).toBe("English");
   expect(japanese).toBe("Japanese");
+  // Property presence
+  expect("en" in langs).toBe(true);
+  expect(langs.hasOwnProperty("en")).toBe(true);
+  expect("ja" in langs).toBe(true);
+  expect(langs.hasOwnProperty("ja")).toBe(true);
   // Delete property
   delete langs.ja;
   expect(langs).toStrictEqual({ en: "English" });
+  // Property presence
+  expect("en" in langs).toBe(true);
+  expect(langs.hasOwnProperty("en")).toBe(true);
+  expect("ja" in langs).toBe(false);
+  expect(langs.hasOwnProperty("ja")).toBe(false);
 });
 
 // Add property
