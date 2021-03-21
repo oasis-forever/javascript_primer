@@ -1,5 +1,6 @@
 import {
-  removeDuplicateSpace
+  removeDuplicateSpace,
+  getURLHostName,
 } from "../lib/string";
 
 test("Remove duplicate space", () => {
@@ -26,4 +27,10 @@ test("Get strings from a text", () => {
   const str8 = text.substring(9, 3); // same as text.substring(3, 9);
   expect(str7).toBe("");
   expect(str8).toBe(" said ");
+});
+
+test("Get a host name from a URL", () => {
+  const url  = "https://example.com?param=1";
+  const host = getURLHostName(url);
+  expect(host).toBe("https://example.com");
 });
