@@ -80,21 +80,21 @@ test("Get an index of an array element", () => {
   expect(rbIdx).toBe(2);
   expect(jsIdx).toBe(3);
   expect(tsIdx).toBe(-1);
-  const indexArr1 = langs.slice(1, 3)
-  const indexArr2 = langs.slice(2)
-  const indexArr3 = langs.slice(-1)
-  const indexArr4 = langs.slice(1, 1)
-  const indexArr5 = langs.slice(2, 1)
+  const indexArr1 = langs.slice(1, 3);
+  const indexArr2 = langs.slice(2);
+  const indexArr3 = langs.slice(-1);
+  const indexArr4 = langs.slice(1, 1);
+  const indexArr5 = langs.slice(2, 1);
   expect(indexArr1).toStrictEqual(["Python", "Ruby"]);
   expect(indexArr2).toStrictEqual(["Ruby", "JavaScript"]);
   expect(indexArr3).toStrictEqual(["JavaScript"]);
   expect(indexArr4).toStrictEqual([]);
   expect(indexArr5).toStrictEqual([]);
-  const result_1 = langs.includes("Java")
-  const result_2 = langs.includes("Python")
-  const result_3 = langs.includes("Ruby")
-  const result_4 = langs.includes("JavaScript")
-  const result_5 = langs.includes("TypeScript")
+  const result_1 = langs.includes("Java");
+  const result_2 = langs.includes("Python");
+  const result_3 = langs.includes("Ruby");
+  const result_4 = langs.includes("JavaScript");
+  const result_5 = langs.includes("TypeScript");
   expect(result_1).toBe(true);
   expect(result_2).toBe(true);
   expect(result_3).toBe(true);
