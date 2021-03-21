@@ -109,6 +109,12 @@ test("Get an index of an array element", () => {
   // Delete the last element
   langs.pop();
   expect(langs).toStrictEqual(["Java", "Python", "Ruby"]);
+  // Concatenate another array
+  const cloudServer = ["AWS", "GCP", "Azure"];
+  const newArray1 = langs.concat(cloudServer)
+  const newArray2 = ["Java", "Python", "Ruby", ...cloudServer]
+  expect(newArray1).toStrictEqual(["Java", "Python", "Ruby", "AWS", "GCP", "Azure"]);
+  expect(newArray2).toStrictEqual(["Java", "Python", "Ruby", "AWS", "GCP", "Azure"]);
 });
 
 test("Get an index object elements", () => {
