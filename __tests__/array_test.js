@@ -4,6 +4,7 @@ import {
   getLangIndex,
   getSingerIndex,
   getSingerElement,
+  flattenNestedArray
 } from "../lib/array";
 
 // Access elememts
@@ -137,4 +138,17 @@ test("Get an element of object elements", () => {
   ]
   const noelIdx = getSingerElement(singers);
   expect(noelIdx).toStrictEqual({ name: "Noel Gallagher" });
+});
+
+// Flatten nested array
+test("Flatten a nested array", () => {
+ const arr = [1, [2], [3, [4, [5]]], 6];
+ const flatArr1 = flattenNestedArray(arr, 1);
+ const flatArr2 = flattenNestedArray(arr, 2);
+ const flatArr3 = flattenNestedArray(arr, 3);
+ const flatArr4 = flattenNestedArray(arr, Infinity);
+ expect(flatArr1).toStrictEqual([1, 2, 3, [4, [5]], 6]);
+ expect(flatArr2).toStrictEqual([1, 2, 3, 4, [5], 6]);
+ expect(flatArr3).toStrictEqual([1, 2, 3, 4, 5, 6]);
+ expect(flatArr4).toStrictEqual([1, 2, 3, 4, 5, 6]);
 });
