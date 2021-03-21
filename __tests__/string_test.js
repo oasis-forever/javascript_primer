@@ -33,6 +33,19 @@ test("Get strings from a text", () => {
   const index_2 = text.lastIndexOf("said");
   expect(index_1).toBe(4);
   expect(index_2).toBe(24);
+  // Boolean
+  const result_1 = text.startsWith("You said");
+  const result_2 = text.startsWith("I said");
+  expect(result_1).toBe(true);
+  expect(result_2).toBe(false);
+  const result_3 = text.endsWith("hello.");
+  const result_4 = text.endsWith("good-bye.");
+  expect(result_3).toBe(true);
+  expect(result_4).toBe(false);
+  const result_5 = text.includes("You");
+  const result_6 = text.includes("I");
+  expect(result_5).toBe(true);
+  expect(result_6).toBe(true);
 });
 
 test("Get a host name from a URL", () => {
