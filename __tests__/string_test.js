@@ -12,22 +12,22 @@ test("Remove duplicate space", () => {
 
 test("Get strings from a text", () => {
   const text = "You said good-bye and I said hello.";
-  const str1 = text.slice(4);
-  const str2 = text.substring(4);
-  expect(str1).toBe("said good-bye and I said hello.");
-  expect(str2).toBe("said good-bye and I said hello.");
-  const str3 = text.slice(2, 8);
-  const str4 = text.substring(2, 8);
-  expect(str3).toBe("u said");
-  expect(str4).toBe("u said");
-  const str5 = text.slice(-1);
-  const str6 = text.substring(-1); // same as text.substring(0);
-  expect(str5).toBe(".");
-  expect(str6).toBe("You said good-bye and I said hello.");
-  const str7 = text.slice(9, 3);
-  const str8 = text.substring(9, 3); // same as text.substring(3, 9);
-  expect(str7).toBe("");
-  expect(str8).toBe(" said ");
+  const str_1 = text.slice(4);
+  const str_2 = text.substring(4);
+  expect(str_1).toBe("said good-bye and I said hello.");
+  expect(str_2).toBe("said good-bye and I said hello.");
+  const str_3 = text.slice(2, 8);
+  const str_4 = text.substring(2, 8);
+  expect(str_3).toBe("u said");
+  expect(str_4).toBe("u said");
+  const str_5 = text.slice(-1);
+  const str_6 = text.substring(-1); // same as text.substring(0);
+  expect(str_5).toBe(".");
+  expect(str_6).toBe("You said good-bye and I said hello.");
+  const str_7 = text.slice(9, 3);
+  const str_8 = text.substring(9, 3); // same as text.substring(3, 9);
+  expect(str_7).toBe("");
+  expect(str_8).toBe(" said ");
 });
 
 test("Get a host name from a URL", () => {
