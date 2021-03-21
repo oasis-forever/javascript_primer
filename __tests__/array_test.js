@@ -151,4 +151,14 @@ test("Flatten a nested array", () => {
  expect(flatArr2).toStrictEqual([1, 2, 3, 4, [5], 6]);
  expect(flatArr3).toStrictEqual([1, 2, 3, 4, 5, 6]);
  expect(flatArr4).toStrictEqual([1, 2, 3, 4, 5, 6]);
+ // Splice elements
+ flatArr3.splice(0, 3);
+ flatArr4.splice(0, 3, ...[7, 8, 9]);
+ expect(flatArr3).toStrictEqual([4, 5, 6]);
+ expect(flatArr4).toStrictEqual([7, 8, 9, 4, 5, 6]);
+ // Delete elements
+ flatArr3.splice(0, flatArr1.length);
+ flatArr4.length = 0;
+ expect(flatArr3).toStrictEqual([]);
+ expect(flatArr4).toStrictEqual([]);
 });
