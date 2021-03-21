@@ -46,3 +46,10 @@ test("Get mactix elements", () => {
     getMatrixElement(arr, 2, 2);
   }).toThrow();
 });
+
+test("Check if the object is an array", () => {
+  const arr = [];
+  const obj = {};
+  expect(Array.isArray(arr)).toBe(true)
+  expect(Array.isArray(obj)).toBe(false)
+});
