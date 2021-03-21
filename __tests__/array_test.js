@@ -4,7 +4,11 @@ import {
   getLangIndex,
   getSingerIndex,
   getSingerElement,
-  flattenNestedArray
+  flattenNestedArray,
+  addInForEach,
+  multiplyNums,
+  getEvenNums,
+  addInReduce
 } from "../lib/array";
 
 // Access elememts
@@ -161,4 +165,29 @@ test("Flatten a nested array", () => {
  flatArr4.length = 0;
  expect(flatArr3).toStrictEqual([]);
  expect(flatArr4).toStrictEqual([]);
+});
+
+// Loop methods
+test("Add in forEach", () => {
+  const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const sum  = addInForEach(nums);
+  expect(sum).toBe(55);
+});
+
+test("Multiply in map", () => {
+  const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const products  = multiplyNums(nums);
+  expect(products).toStrictEqual([10, 20, 30, 40, 50, 60, 70, 80, 90, 100]);
+});
+
+test("Get even numbers", () => {
+  const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const evenNums = getEvenNums(nums);
+  expect(evenNums).toStrictEqual([2, 4, 6, 8, 10]);
+});
+
+test("Add in reduce", () => {
+  const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const sum  = addInReduce(nums);
+  expect(sum).toBe(55);
 });
