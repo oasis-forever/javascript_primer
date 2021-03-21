@@ -28,6 +28,11 @@ test("Get strings from a text", () => {
   const str_8 = text.substring(9, 3); // same as text.substring(3, 9);
   expect(str_7).toBe("");
   expect(str_8).toBe(" said ");
+  // Serach string
+  const index_1 = text.indexOf("said");
+  const index_2 = text.lastIndexOf("said");
+  expect(index_1).toBe(4);
+  expect(index_2).toBe(24);
 });
 
 test("Get a host name from a URL", () => {
