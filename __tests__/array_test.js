@@ -100,6 +100,9 @@ test("Get an index of an array element", () => {
   expect(result_3).toBe(true);
   expect(result_4).toBe(true);
   expect(result_5).toBe(false);
+  // Add an element to the head
+  langs.unshift("C");
+  expect(langs).toStrictEqual(["C", "Java", "Python", "Ruby", "JavaScript"]);
 });
 
 test("Get an index object elements", () => {
