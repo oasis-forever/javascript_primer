@@ -50,15 +50,15 @@ test("Get mactix elements", () => {
 test("Check if the object is an array", () => {
   const arr = [];
   const obj = {};
-  expect(Array.isArray(arr)).toBe(true)
-  expect(Array.isArray(obj)).toBe(false)
+  expect(Array.isArray(arr)).toBe(true);
+  expect(Array.isArray(obj)).toBe(false);
 });
 
 // Destructuring assignment
 test("Check if the object is an array", () => {
-  const vector = ["a", "b", "c", "d"]
+  const vector = ["a", "b", "c", "d"];
   const [a, b, c, d] = vector
-  expect(a).toBe("a");
+  expect(a).toBe("a")
   expect(b).toBe("b");
   expect(c).toBe("c");
   expect(d).toBe("d");
