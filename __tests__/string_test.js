@@ -1,6 +1,6 @@
 import {
   removeDuplicateSpace,
-  getURLHostName,
+  getBaseURL,
   getURLQueryString,
   getIndexInSearch,
   getIndexInMatch,
@@ -53,7 +53,7 @@ test("Get strings from a text", () => {
 
 test("Get a host name from a URL", () => {
   const url  = "https://example.com?param=1";
-  const host = getURLHostName(url);
+  const host = getBaseURL(url);
   expect(host).toBe("https://example.com");
 });
 
