@@ -4,7 +4,8 @@ import {
   getURLQueryString,
   getIndexInSearch,
   getIndexInMatch,
-  getIndexInMatchAll
+  getIndexInMatchAll,
+  replaceString
 } from "../lib/string";
 
 test("Remove duplicate space", () => {
@@ -115,4 +116,18 @@ test("Get an index in String#matchAll", () => {
     '"ES2016", 2016, index: 7, input: "ES2015、ES2016、ES2017", groups: undefined',
     '"ES2017", 2017, index: 14, input: "ES2015、ES2016、ES2017", groups: undefined'
   ]);
+});
+
+test("Replace a string in a text", () => {
+  const text = "HogeHogeFooBarPiyoHoge";
+  const pattern_1 = "Hoge";
+  const pattern_2 = /Hoge/;
+  const pattern_3 = /Hoge/g;
+  const altChar = "";
+  const newText1 = replaceString(text, pattern_1, altChar);
+  const newText2 = replaceString(text, pattern_2, altChar);
+  const newText3 = replaceString(text, pattern_3, altChar);
+  expect(newText1).toBe("HogeFooBarPiyoHoge");
+  expect(newText2).toBe("HogeFooBarPiyoHoge");
+  expect(newText3).toBe("FooBarPiyo");
 });
