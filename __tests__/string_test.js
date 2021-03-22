@@ -2,7 +2,8 @@ import {
   removeDuplicateSpace,
   getURLHostName,
   getURLQueryString,
-  getIndexInSearch
+  getIndexInSearch,
+  getIndexInMatch
 } from "../lib/string";
 
 test("Remove duplicate space", () => {
@@ -67,4 +68,14 @@ test("Get an index in String#search", () => {
   const pattern = /\d{3}/;
   const index   = getIndexInSearch(text, pattern);
   expect(index).toBe(3);
+});
+
+test("Get an index in String#match", () => {
+  const text = "ABC123EFG";
+  const pattern_1 = /[a-zA-Z]+/;
+  const pattern_2 = /[a-zA-Z]+/g;
+  const result_1  = getIndexInMatch(text, pattern_1);
+  const result_2  = getIndexInMatch(text, pattern_2);
+  expect(`"${result_1[0]}", index: ${result_1.index}, input: "${result_1.input}", groups: "${result_1.group}"`).toBe('"ABC", index: 0, input: "ABC123EFG", groups: "undefined"');
+  expect(result_2).toStrictEqual(["ABC", "EFG"]);
 });
