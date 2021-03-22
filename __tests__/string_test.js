@@ -38,17 +38,29 @@ test("Get strings from a text", () => {
   expect(index_2).toBe(24);
   // Boolean
   const result_1 = text.startsWith("You said");
-  const result_2 = text.startsWith("I said");
+  const result_2 = /^You said/.test(text);
+  const result_3 = text.startsWith("I said");
+  const result_4 = /^I said/.test(text);
   expect(result_1).toBe(true);
-  expect(result_2).toBe(false);
-  const result_3 = text.endsWith("hello.");
-  const result_4 = text.endsWith("good-bye.");
-  expect(result_3).toBe(true);
+  expect(result_2).toBe(true);
+  expect(result_3).toBe(false);
   expect(result_4).toBe(false);
-  const result_5 = text.includes("You");
-  const result_6 = text.includes("I");
+  const result_5 = text.endsWith("hello.");
+  const result_6 = /hello.$/.test(text);
+  const result_7 = text.endsWith("good-bye.");
+  const result_8 = /good-bye.$/.test(text);
   expect(result_5).toBe(true);
   expect(result_6).toBe(true);
+  expect(result_7).toBe(false);
+  expect(result_8).toBe(false);
+  const result_9  = text.includes("You");
+  const result_10 = /You/.test(text);
+  const result_11 = text.includes("I");
+  const result_12 = /I/.test(text);
+  expect(result_9).toBe(true);
+  expect(result_10).toBe(true);
+  expect(result_11).toBe(true);
+  expect(result_12).toBe(true);
 });
 
 test("Get a host name from a URL", () => {
