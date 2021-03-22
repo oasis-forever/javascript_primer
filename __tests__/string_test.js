@@ -1,7 +1,8 @@
 import {
   removeDuplicateSpace,
   getURLHostName,
-  getURLQueryString
+  getURLQueryString,
+  getIndexInSearch
 } from "../lib/string";
 
 test("Remove duplicate space", () => {
@@ -58,4 +59,12 @@ test("Get a query string from a URL", () => {
   const url = "https://example.com?param=1";
   const querystr = getURLQueryString(url);
   expect(querystr).toBe("param=1");
+});
+
+// Regular expression
+test("Get a string in a regular exoression", () => {
+  const text    = "ABC123EFG";
+  const pattern = /\d{3}/;
+  const index   = getIndexInSearch(text, pattern);
+  expect(index).toBe(3);
 });
