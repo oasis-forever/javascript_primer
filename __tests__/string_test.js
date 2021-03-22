@@ -5,6 +5,7 @@ import {
   getIndexInSearch,
   getIndexInMatch,
   getIndexInMatchAll,
+  convertToEnDate,
   replaceString
 } from "../lib/string";
 
@@ -123,11 +124,16 @@ test("Replace a string in a text", () => {
   const pattern_1 = "Hoge";
   const pattern_2 = /Hoge/;
   const pattern_3 = /Hoge/g;
-  const altChar = "";
-  const newText1 = replaceString(text, pattern_1, altChar);
-  const newText2 = replaceString(text, pattern_2, altChar);
-  const newText3 = replaceString(text, pattern_3, altChar);
+  const altChar1 = "";
+  const newText1 = replaceString(text, pattern_1, altChar1);
+  const newText2 = replaceString(text, pattern_2, altChar1);
+  const newText3 = replaceString(text, pattern_3, altChar1);
   expect(newText1).toBe("HogeFooBarPiyoHoge");
   expect(newText2).toBe("HogeFooBarPiyoHoge");
   expect(newText3).toBe("FooBarPiyo");
+  const jaDate    = "2020-03-22";
+  const pattern_4 = /(\d{4})-(\d{2})-(\d{2})/;
+  const altChar2  = convertToEnDate;
+  const enDate    = replaceString(jaDate, pattern_4, altChar2);
+  expect(enDate).toBe("22 Mar 2020");
 });
