@@ -72,21 +72,35 @@ test("Get an index in String#search", () => {
 });
 
 test("Get an index in String#match", () => {
-  const text = "ABC123EFG";
+  const text_1 = "ABC123EFG";
   const pattern_1 = /[a-zA-Z]+/;
   const pattern_2 = /[a-zA-Z]+/g;
-  const result_1  = getIndexInMatch(text, pattern_1);
-  const result_2  = getIndexInMatch(text, pattern_2);
-  expect(`"${result_1[0]}", index: ${result_1.index}, input: "${result_1.input}", groups: "${result_1.group}"`).toBe('"ABC", index: 0, input: "ABC123EFG", groups: "undefined"');
+  const result_1  = getIndexInMatch(text_1, pattern_1);
+  const result_2  = getIndexInMatch(text_1, pattern_2);
+  expect(`"${result_1[0]}", index: ${result_1.index}, input: "${result_1.input}", groups: "${result_1.groups}"`).toBe('"ABC", index: 0, input: "ABC123EFG", groups: "undefined"');
   expect(result_2).toStrictEqual(["ABC", "EFG"]);
+  // Capture
+  const text_2 = "ECMAScript 6";
+  const pattern_3 = /ECMAScript (\d+)/;
+  const result_3  = getIndexInMatch(text_2, pattern_3);
+  expect(`"${result_3[0]}", ${result_3[1]}, index: ${result_3.index}, input: "${result_3.input}", groups: "${result_3.groups}"`).toBe('"ECMAScript 6", 6, index: 0, input: "ECMAScript 6", groups: "undefined"');
 });
 
 test("Get an index in String#matchAll", () => {
-  const text = "ABC123EFG";
-  const pattern = /[a-zA-Z]+/g;
-  const info = getIndexInMatchAll(text, pattern);
-  expect(info).toStrictEqual([
-    '"ABC", index: 0, input: "ABC123EFG", groups: "undefined"',
-    '"EFG", index: 6, input: "ABC123EFG", groups: "undefined"'
+  const text_1 = "ABC123EFG";
+  const pattern_1 = /[a-zA-Z]+/g;
+  const info_1 = getIndexInMatchAll(text_1, pattern_1);
+  expect(info_1).toStrictEqual([
+    '"ABC", undefined, index: 0, input: "ABC123EFG", groups: undefined',
+    '"EFG", undefined, index: 6, input: "ABC123EFG", groups: undefined'
+  ]);
+  // Capture
+  const text_2 = "ES2015、ES2016、ES2017";
+  const pattern_2 = /ES(\d+)/g;
+  const info_2 = getIndexInMatchAll(text_2, pattern_2);
+  expect(info_2).toStrictEqual([
+    '"ES2015", 2015, index: 0, input: "ES2015、ES2016、ES2017", groups: undefined',
+    '"ES2016", 2016, index: 7, input: "ES2015、ES2016、ES2017", groups: undefined',
+    '"ES2017", 2017, index: 14, input: "ES2015、ES2016、ES2017", groups: undefined'
   ]);
 });
