@@ -62,7 +62,7 @@ test("Get a query string from a URL", () => {
 });
 
 // Regular expression
-test("Get a string in a regular exoression", () => {
+test("Get an index in String#search", () => {
   const text    = "ABC123EFG";
   const pattern = /\d{3}/;
   const index   = getIndexInSearch(text, pattern);
