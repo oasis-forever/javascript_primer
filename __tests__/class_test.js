@@ -24,4 +24,8 @@ test("User class", () => {
   expect(user_3.name).toBe("UserB");
   expect(user_3.age).toBe(40);
   expect(User.classMethod()).toBe("This is a class method!!");
+  const user_4 = new User("Conflict methods", 0);
+  expect(user_4.method()).toBe("This is an instance object method!!");
+  delete user_4.method;
+  expect(user_4.method()).toBe("This is a prototype method!!");
 });
