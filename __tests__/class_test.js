@@ -14,4 +14,13 @@ test("User class", () => {
   expect(user_2.age).toBe(48);
   expect(user_2.greet()).toBe("Hello. I'm Liam Gallagher and 48 years old. Nice to see you!");
   expect(user_1.greet === user_2.greet).toBe(true);
+  // Getter
+  const user_3 = new User("UserA", 30);
+  expect(user_3.name).toBe("UserA");
+  expect(user_3.age).toBe(30);
+  // Setter
+  user_3.name = "UserB";
+  user_3.age  = 40;
+  expect(user_3.name).toBe("UserB");
+  expect(user_3.age).toBe(40);
 });
