@@ -23,4 +23,5 @@ test("User class", () => {
   user_3.age  = 40;
   expect(user_3.name).toBe("UserB");
   expect(user_3.age).toBe(40);
+  expect(User.classMethod()).toBe("This is a class method!!");
 });
