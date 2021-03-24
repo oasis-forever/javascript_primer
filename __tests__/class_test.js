@@ -28,4 +28,6 @@ test("User class", () => {
   expect(user_4.method()).toBe("This is an instance object method!!");
   delete user_4.method;
   expect(user_4.method()).toBe("This is a prototype method!!");
+  expect(typeof User.prototype.method).toBe("function");
+  expect(User.prototype.constructor).toBe(User);
 });
