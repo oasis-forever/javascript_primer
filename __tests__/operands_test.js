@@ -2,6 +2,7 @@ import {
   add,
   substract,
   multiply,
+  devide,
   modulusCalc,
   raise,
   plus,
