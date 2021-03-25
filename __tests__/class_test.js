@@ -30,4 +30,9 @@ test("User class", () => {
   expect(user_4.method()).toBe("This is a prototype method!!");
   expect(typeof User.prototype.method).toBe("function");
   expect(User.prototype.constructor).toBe(User);
+  const user_5 = new User("Prototype chain", 0);
+  const UserPrototype = Object.getPrototypeOf(user_5);
+  expect(UserPrototype === User.ptototype).toBe(true);
+  const protoType1 = Object.getPrototypeOf(user_5);
+  expect(user_5.method === User.method).toBe(true);
 });
