@@ -1,5 +1,6 @@
 import {
-  User
+  User,
+  Admin
 } from "../lib/class";
 
 test("User", () => {
@@ -38,4 +39,18 @@ test("User", () => {
   expect(UserPrototype === User.prototype).toBe(true);
   delete user_5.method
   expect(user_5.method === UserPrototype.method).toBe(true);
+  // Inheritance
+  const user_6 = new User("User", 0);
+  expect(user_6 instanceof User).toBe(true);
+  expect(user_6 instanceof Admin).toBe(false);
+});
+
+test("Admin", () => {
+  const admin = new Admin("Admin",  0);
+  expect(admin.name).toBe("Admin");
+  expect(admin.age).toBe(0);
+  expect(admin.type).toBe("Administrator");
+  expect(Admin.classMethod()).toBe("This is a class method!!");
+  expect(admin instanceof User).toBe(true);
+  expect(admin instanceof Admin).toBe(true);
 });
