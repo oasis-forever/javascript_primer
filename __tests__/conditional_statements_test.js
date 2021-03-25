@@ -4,7 +4,7 @@ import {
 } from "../lib/conditional_statements";
 
 // If statement
-test("If statement", () => {
+test("getJavaScriptVersion1", () => {
   const ver_1 = getJavaScriptVersion1("ES5");
   const ver_2 = getJavaScriptVersion1("ES6");
   const ver_3 = getJavaScriptVersion1("ES7");
@@ -16,7 +16,7 @@ test("If statement", () => {
 });
 
 // Switch statement
-test("Switch statement", () => {
+test("getJavaScriptVersion2", () => {
   const ver_1 = getJavaScriptVersion2("ES5");
   const ver_2 = getJavaScriptVersion2("ES6");
   const ver_3 = getJavaScriptVersion2("ES7");

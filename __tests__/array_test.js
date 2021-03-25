@@ -12,7 +12,7 @@ import {
 } from "../lib/array";
 
 // Access elememts
-test("Get vector elements", () => {
+test("getVectorElement", () => {
   const denseVector  = ["a", "b", "c", "d"]
   const sparseVector = ["a", "b", , "d"]
   const denseA  = getVectorElement(denseVector, 0);
@@ -33,7 +33,7 @@ test("Get vector elements", () => {
   expect(sparseD).toBe("d");
 });
 
-test("Get mactix elements", () => {
+test("getMatrixElement", () => {
   const matrix = [
     ["a", "b"],
     ["c", "d"]
@@ -55,7 +55,7 @@ test("Get mactix elements", () => {
   }).toThrow();
 });
 
-test("Check if the object is an array", () => {
+test("Array#isArray", () => {
   const arr = [];
   const obj = {};
   expect(Array.isArray(arr)).toBe(true);
@@ -63,7 +63,7 @@ test("Check if the object is an array", () => {
 });
 
 // Destructuring assignment
-test("Check if the object is an array", () => {
+test("Destructuring assignment of an array", () => {
   const vector = ["a", "b", "c", "d"];
   const [a, b, c, d] = vector
   expect(a).toBe("a")
@@ -73,7 +73,7 @@ test("Check if the object is an array", () => {
 })
 
 // Index/element reference
-test("Get an index of an array element", () => {
+test("getLangIndex", () => {
   const langs   = ["Java", "Python", "Ruby", "JavaScript"];
   const javaIdx = getLangIndex(langs, "Java");
   const pyIdx   = getLangIndex(langs, "Python");
@@ -122,7 +122,7 @@ test("Get an index of an array element", () => {
   expect(newArray2).toStrictEqual(["Java", "Python", "Ruby", "AWS", "GCP", "Azure"]);
 });
 
-test("Get an index object elements", () => {
+test("getSingerIndex", () => {
   const singers = [
     { name: "Noel Gallagher" },
     { name: "Liam Gallagher" },
@@ -133,7 +133,7 @@ test("Get an index object elements", () => {
   expect(noelIdx).toBe(0);
 });
 
-test("Get an element of object elements", () => {
+test("getSingerElement", () => {
   const singers = [
     { name: "Noel Gallagher" },
     { name: "Liam Gallagher" },
@@ -145,7 +145,7 @@ test("Get an element of object elements", () => {
 });
 
 // Flatten nested array
-test("Flatten a nested array", () => {
+test("flattenNestedArray", () => {
  const arr = [1, [2], [3, [4, [5]]], 6];
  const flatArr1 = flattenNestedArray(arr, 1);
  const flatArr2 = flattenNestedArray(arr, 2);
@@ -168,25 +168,25 @@ test("Flatten a nested array", () => {
 });
 
 // Loop methods
-test("Add in forEach", () => {
+test("addInForEach", () => {
   const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   const sum  = addInForEach(nums);
   expect(sum).toBe(55);
 });
 
-test("Multiply in map", () => {
+test("multiplyNums", () => {
   const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   const products  = multiplyNums(nums);
   expect(products).toStrictEqual([10, 20, 30, 40, 50, 60, 70, 80, 90, 100]);
 });
 
-test("Get even numbers", () => {
+test("getEvenNums", () => {
   const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   const evenNums = getEvenNums(nums);
   expect(evenNums).toStrictEqual([2, 4, 6, 8, 10]);
 });
 
-test("Add in reduce", () => {
+test("addInReduce", () => {
   const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   const sum  = addInReduce(nums);
   expect(sum).toBe(55);

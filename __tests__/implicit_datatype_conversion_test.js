@@ -11,14 +11,14 @@ import {
   parseFloat
 } from "../lib/implicit_datatype_conversion";
 
-test("Num plus boolean", () => {
+test("addBoolean", () => {
   const sum_1 = addBoolean(1, true);
   const sum_2 = addBoolean(1, false);
   expect(sum_1).toBe(2);
   expect(sum_2).toBe(1);
 });
 
-test("Logical equal", () => {
+test("logicalEqual", () => {
   const result_1 = logicalEqual(1, true);
   const result_2 = logicalEqual(0, false);
   const result_3 = logicalEqual(100, "100");
@@ -31,21 +31,21 @@ test("Logical equal", () => {
   expect(result_5).toBe(true);
 });
 
-test("Add another type", () => {
+test("addAnotherType", () => {
   const result_1 = addAnotherType(1, "1");
   const result_2 = addAnotherType("1", "1");
   expect(result_1).toBe("11");
   expect(result_2).toBe("11");
 });
 
-test("Substract another type", () => {
+test("substractAnotherType", () => {
   const result_1 = substractAnotherType(2, "1");
   const result_2 = substractAnotherType("2", "1");
   expect(result_1).toBe(1);
   expect(result_2).toBe(1);
 });
 
-test("Add multipul types", () => {
+test("addMultipulTypes", () => {
   const result_1 = addMultipulTypes(1, 2, "3");
   const result_2 = addMultipulTypes("1", 2, 3);
   const result_3 = addMultipulTypes(1, "2", 3);
@@ -58,7 +58,7 @@ test("Add multipul types", () => {
   expect(result_5).toBe(NaN);
 });
 
-test("Convert to boolean", () => {
+test("convertToBoolean", () => {
   // Non falsy
   const bool_1 = convertToBoolean("string");
   const bool_2 = convertToBoolean(1);
@@ -75,7 +75,7 @@ test("Convert to boolean", () => {
   expect(bool_6).toBe(false);
 });
 
-test("Convert to string", () => {
+test("convertToString", () => {
   // Primitive
   const str_1 = convertToString("String");
   const str_2 = convertToString(true);
@@ -96,14 +96,14 @@ test("Convert to string", () => {
   expect(str_8).toBe("function () {}");
 });
 
-test("Convert to number", () => {
+test("convertToNumber", () => {
   const num_1 = convertToNumber("42");
   const num_2 = convertToNumber("Foo");
   expect(num_1).toBe(42);
   expect(Number.isNaN(num_2)).toBe(true);
 });
 
-test("Parse integer", () => {
+test("parseInteger", () => {
   const int_1 = parseInteger("1");
   const int_2 = parseInteger("42px");
   const int_3 = parseInteger("10.5");
@@ -112,7 +112,7 @@ test("Parse integer", () => {
   expect(int_3).toBe(10);
 });
 
-test("Parse float", () => {
+test("parseFloat", () => {
   const float_1 = parseFloat("1");
   const float_2 = parseFloat("42.5px");
   const float_3 = parseFloat("10.5");

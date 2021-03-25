@@ -13,7 +13,7 @@ import {
   getRegExp
 } from "../lib/datatypes_and_literals";
 
-test("Data types", () => {
+test("getDataTypes", () => {
   const dataTypes = getDataTypes();
   expect(dataTypes[0]).toBe("boolean");
   expect(dataTypes[1]).toBe("number");
@@ -28,45 +28,45 @@ test("Data types", () => {
   expect(dataTypes[10]).toBe("function");
 });
 
-test("Boolean", () => {
+test("getBoolean", () => {
   const bools = getBoolean()
   expect(bools[0]).toBe(true);
   expect(bools[1]).toBe(false);
 });
 
-test("Integer", () => {
+test("getInteger", () => {
   const int = getInteger();
   expect(int).toBe(20210314);
 });
 
-test("Binary", () => {
+test("getBinary", () => {
   const bin = getBinary();
   expect(bin).toBe(1024);
 });
 
-test("Octal", () => {
+test("getOctal", () => {
   const oct = getOctal();
   expect(oct).toBe(420);
 });
 
-test("Hex", () => {
+test("getHex", () => {
   const hex = getHex();
   expect(hex).toBe(12450);
 });
 
-test("Float", () => {
+test("getFloat", () => {
   const floats = getFloat();
   expect(floats[0]).toBe(0.123);
   expect(floats[1]).toBe(200000000);
 });
 
-test("BigInt", () => {
+test("getBigInt", () => {
   const bigInts = getBigInt();
   expect(bigInts[0]).toBe(9007199254740991);
   expect(bigInts[1]).toBe(9007199254740992n);
 });
 
-test("String", () => {
+test("getString", () => {
   const strs = getString();
   expect(strs[0]).toBe("String");
   expect(strs[1]).toBe("8 o'clock");
@@ -75,19 +75,19 @@ test("String", () => {
   expect(strs[4]).toBe("I'm Oasist and 29 years old.");
 });
 
-test("Null", () => {
+test("getNull", () => {
   const val = getNull();
   expect(val).toBe(null);
 });
 
-test("Object", () => {
+test("getObject", () => {
   const obj = getObject();
   expect(obj).toStrictEqual({ "name": "Oasist" });
   expect(obj["name"]).toBe("Oasist");
   expect(obj.name).toBe("Oasist");
 });
 
-test("Regular expression", () => {
+test("getRegExp", () => {
   const result = getRegExp();
   expect(result).toBe(true);
 });

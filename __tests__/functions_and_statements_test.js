@@ -11,14 +11,14 @@ import {
 } from "../lib/functions_and_statements";
 
 // Fuxntions dealing with a default argument
-test("Fuction with default argument", () =>{
+test("defaultArgFunc", () =>{
   const text_1 = defaultArgFunc("string");
   const text_2 = defaultArgFunc("string", "Custom ");
   expect(text_1).toBe("Default string");
   expect(text_2).toBe("Custom string");
 });
 
-test("Fuction acceptive to a falsy value", () =>{
+test("falsyAcceptiveFunc", () =>{
   // Non falsy
   const text_1 = falsyAcceptiveFunc("string");
   const text_2 = falsyAcceptiveFunc("string", "Custom ");
@@ -41,7 +41,7 @@ test("Fuction acceptive to a falsy value", () =>{
   expect(text_9).toBe("Default string");
 });
 
-test("Fuction rejecting a falsy value", () =>{
+test("falsyRejectingFunc", () =>{
   // Non falsy
   const text_1 = falsyRejectingFunc("string");
   const text_2 = falsyRejectingFunc("string", "Custom ");
@@ -65,18 +65,18 @@ test("Fuction rejecting a falsy value", () =>{
 });
 
 // Rest parameters
-test("Fuction accpetive to multiple arguements as an array", () =>{
+test("restArgsFunc1", () =>{
   const nums = restArgsFunc1(1, 2, 3);
   expect(nums).toStrictEqual([1, 2, 3]);
 });
 
-test("Fuction accpetive to a arguement and multiple ones as an array", () =>{
+test("restArgsFunc2", () =>{
   const nums = restArgsFunc2(1, 2, 3);
   expect(nums[0]).toBe(1);
   expect(nums[1]).toStrictEqual([2, 3]);
 });
 
-test("Fuction accpetive to multiple arguemnts with spread systax", () =>{
+test("argsSpreadFunc", () =>{
   const numsArray = [1, 2, 3]
   const nums = argsSpreadFunc(...numsArray)
   expect(nums[0]).toBe(1);
@@ -85,20 +85,20 @@ test("Fuction accpetive to multiple arguemnts with spread systax", () =>{
 });
 
 // Destructuring assignment
-test("Destructuring assignment 1", () =>{
+test("returnUserId1", () =>{
   const user = { "id": 1}
   const userID = returnUserId1(user)
   expect(userID).toBe(1)
 });
 
-test("Destructuring assignment 2", () =>{
+test("returnUserId2", () =>{
   const user = { "id": 1}
   const { id } = user
   const userID = returnUserId2(id)
   expect(userID).toBe(1)
 });
 
-test("Destructuring assignment 3", () =>{
+test("returnUserId3", () =>{
   const user = { "id": 1}
   const userID = returnUserId3(user)
   expect(userID).toBe(1)

@@ -15,64 +15,64 @@ import {
 } from "../lib/loops";
 
 // While
-test("Add in while 1", () => {
+test("addInWhile1", () => {
   const sum = addInWhile1(0, 10);
   expect(sum).toBe(55);
 });
 
-test("Add in while 2", () => {
+test("addInWhile2", () => {
   const sum = addInWhile2(0, 10);
   expect(sum).toBe(55);
 });
 
 // For
-test("Add in for", () => {
+test("addInFor", () => {
   const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   const sum  = addInFor(nums);
   expect(sum).toBe(55);
 });
 
 // ForEach
-test("Add in for", () => {
+test("addInForEach", () => {
   const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   const sum  = addInForEach(nums);
   expect(sum).toBe(55)
 });
 
 // Break loop
-test("Escape from loop 1", () => {
+test("isEvenIncluded1", () => {
   const nums   = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   const result = isEvenIncluded1(nums)
   expect(result).toBe(true);
 });
 
-test("Escape from loop 2", () => {
+test("isEvenIncluded2", () => {
   const nums   = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   const result = isEvenIncluded2(nums)
   expect(result).toBe(true);
 });
 
 // Continue loop
-test("Continue loop 1", () => {
+test("evenNums1", () => {
   const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
   const evenNumsArray = evenNums1(nums);
   expect(evenNumsArray).toStrictEqual([2, 4, 6, 8, 10]);
 });
 
-test("Continue loop 2", () => {
+test("evenNums2", () => {
   const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
   const evenNumsArray = evenNums2(nums);
   expect(evenNumsArray).toStrictEqual([2, 4, 6, 8, 10]);
 });
 
-test("Continue loop 3", () => {
+test("evenNums3", () => {
   const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
   const evenNumsArray = evenNums3(nums);
   expect(evenNumsArray).toStrictEqual([2, 4, 6, 8, 10]);
 });
 
 // for...in
-test("for...in", () => {
+test("getOnjectProperties1", () => {
   const obj = {
     "a": 1,
     "b": 2,
@@ -82,7 +82,7 @@ test("for...in", () => {
   expect(properties).toStrictEqual(["key: a, val: 1", "key: b, val: 2", "key: c, val: 3"]);
 });
 
-test("Object.keys", () => {
+test("getOnjectProperties2", () => {
   const obj = {
     "a": 1,
     "b": 2,
@@ -93,13 +93,13 @@ test("Object.keys", () => {
 });
 
 // for...of
-test("Add in for...of", () => {
+test("addInForOf", () => {
   const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   const sum  = addInForOf(nums);
   expect(sum).toBe(55)
 });
 
-test("Add in reduce", () => {
+test("addInReduce", () => {
   const nums  = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   const total = addInReduce(nums);
   expect(total).toBe(55)

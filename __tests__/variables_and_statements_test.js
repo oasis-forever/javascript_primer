@@ -5,7 +5,7 @@ import {
   overrideVar
 } from "../lib/variables_and_statements";
 
-test("State constants", () => {
+test("stateConstants", () => {
   const constants = stateConstants("JavaScript Primer", "Front-end");
   const projectName     = constants[0]
   const projectCategory = constants[1]
@@ -13,13 +13,13 @@ test("State constants", () => {
   expect(projectCategory).toBe("Front-end");
 });
 
-test("Override a defined constant", () => {
+test("overrideConstant", () => {
   expect(() => {
     overrideConstant("Foo");
   }).toThrow();
 });
 
-test("Override a defined let", () => {
+test("overrideLet", () => {
   const lets = overrideLet("JavaScript Primer", "Front-end");
   const projectName     = lets[0]
   const projectCategory = lets[1]
@@ -27,7 +27,7 @@ test("Override a defined let", () => {
   expect(projectCategory).toBe("Front-end");
 });
 
-test("Override a defined variable", () => {
+test("overrideVar", () => {
   const vars = overrideVar("JavaScript Primer", "Front-end");
   const projectName     = vars[0]
   const projectCategory = vars[1]

@@ -13,7 +13,7 @@ import {
 } from "../lib/object";
 
 // Access properties
-test("Get username 1", () => {
+test("getUserName1", () => {
   const user = {
     name: "Oasist"
   }
@@ -21,7 +21,7 @@ test("Get username 1", () => {
   expect(username).toBe("Oasist");
 });
 
-test("Get username 2", () => {
+test("getUserName2", () => {
   const user = {
     name: "Oasist"
   }
@@ -30,7 +30,7 @@ test("Get username 2", () => {
 });
 
 // Destructuring assignment
-test("Get language 1", () => {
+test("getLanguages1", () => {
   const langs = {
     en: "English",
     ja: "Japanese"
@@ -61,7 +61,7 @@ test("Get language 1", () => {
   expect(langs.hasOwnProperty("ja")).toBe(true);
 });
 
-test("Get language 2", () => {
+test("getLanguages2", () => {
   const langs = {
     en: "English",
     ja: "Japanese"
@@ -93,14 +93,14 @@ test("Get language 2", () => {
 });
 
 // Add property
-test("Add property 1", () => {
+test("addProperty1", () => {
   const key  = "name";
   const val  = "Oasist";
   const user = addProperty1(key, val);
   expect(user).toStrictEqual({ name: "Oasist" });
 });
 
-test("Add property 2", () => {
+test("addProperty2", () => {
   const key  = "name";
   const val  = "Oasist";
   const user = addProperty2(key, val);
@@ -108,7 +108,7 @@ test("Add property 2", () => {
 });
 
 // Optional chaining operator
-test("Get nested property", () => {
+test("getProgrammingLanguages", () => {
   const pLangs = getProgrammingLanguages();
   const staticLang  = pLangs?.["staticLang"];
   const dynamicLang = pLangs?.["dynamicLang"];
@@ -119,14 +119,14 @@ test("Get nested property", () => {
 });
 
 // Merge
-test("Merge objects 1", () => {
+test("mergeObjects1", () => {
   const objA = { a: 1, b: 2};
   const objB = { c: 3, d: 4};
   const mergedObj = mergeObjects1(objA, objB);
   expect(mergedObj).toStrictEqual({ a: 1, b: 2, c: 3, d: 4})
 });
 
-test("Merge objects 2", () => {
+test("mergeObjects2", () => {
   const objA = { a: 1, b: 2};
   const objB = { c: 3, d: 4};
   const mergedObj = mergeObjects2(objA, objB);
@@ -134,7 +134,7 @@ test("Merge objects 2", () => {
 });
 
 // Clone
-test("Shallow clone", () => {
+test("shallowClone", () => {
   const obj = {
       level: 1,
       nest: {
@@ -145,7 +145,7 @@ test("Shallow clone", () => {
   expect(obj.nest === cloneObj.nest).toBe(true);
 });
 
-test("Deep clone", () => {
+test("deepClone", () => {
   const obj = {
       level: 1,
       nest: {

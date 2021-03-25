@@ -1,6 +1,6 @@
 import { hello } from "../lib/hello";
 
-test("Hello", () => {
+test("hello", () => {
   const message = hello("Oasist");
   expect(message).toBe("Hello, Oasist");
 });

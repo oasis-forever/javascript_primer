@@ -8,14 +8,14 @@ import {
   minus,
   increment,
   decrement,
-  strictEqualityOperator,
-  strictInequalOperator,
-  equalOperator,
-  inequalOperator,
-  greater_than,
-  greater_than_or_equal_to,
-  less_than,
-  less_than_or_equal_to,
+  strictEquality,
+  strictInequal,
+  equal,
+  inequal,
+  greaterThan,
+  greaterThan_or_equalTo,
+  lessThan,
+  lessThan_or_equalTo,
   bitAND,
   bitOR,
   bitXOR,
@@ -29,11 +29,11 @@ import {
   logicalNOT,
   logicalDoubleNOT,
   coalesceNullishValues,
-  ternaryOperator
+  ternary
 } from "../lib/operands";
 
 // Binary operators
-test("Addition", () => {
+test("add", () => {
     const sum_1 = add(100, 200);
     const sum_2 = add(10, 0.5);
     const str  = add("Java", "Script");
@@ -42,55 +42,55 @@ test("Addition", () => {
     expect(str).toBe("JavaScript");
 });
 
-test("Substraction", () => {
+test("substract", () => {
     const diff_1 = substract(300, 200);
     const diff_2 = substract(10, 0.5);
     expect(diff_1).toBe(100);
     expect(diff_2).toBe(9.5);
 });
 
-test("Multiplication", () => {
+test("multiply", () => {
     const product_1 = multiply(300, 200);
     const product_2 = multiply(10, 0.5);
     expect(product_1).toBe(60000);
     expect(product_2).toBe(5);
 });
 
-test("Devision", () => {
-    const quotient_1 = multiply(300, 200);
-    const quotient_2 = multiply(10, 0.5);
-    expect(quotient_1).toBe(60000);
-    expect(quotient_2).toBe(5);
+test("devide", () => {
+    const quotient_1 = devide(300, 200);
+    const quotient_2 = devide(10, 0.5);
+    expect(quotient_1).toBe(1.5);
+    expect(quotient_2).toBe(20);
 });
 
-test("Modulus calculation", () => {
+test("modulusCalc", () => {
     const residue_1 = modulusCalc(300, 100);
     const residue_2 = modulusCalc(10, 3);
     expect(residue_1).toBe(0);
     expect(residue_2).toBe(1);
 });
 
-test("Raise", () => {
+test("raise", () => {
     const result = raise(4, 4);
     expect(result).toBe(256);
 });
 
 // Unary operators
-test("Plus operator", () => {
+test("plus", () => {
     const result_1 = plus("100");
     const result_2 = plus("String");
     expect(result_1).toBe(100);
     expect(Number.isNaN(result_2)).toBe(true);
 });
 
-test("Minus operator", () => {
+test("minus", () => {
     const result_1 = minus("100");
     const result_2 = minus("String");
     expect(result_1).toBe(-100);
     expect(Number.isNaN(result_2)).toBe(true);
 });
 
-test("Incrementation", () => {
+test("increment", () => {
     const vals = increment(1);
     const result_1 = vals[0];
     const num_1 = vals[1];
@@ -102,7 +102,7 @@ test("Incrementation", () => {
     expect(num_2).toBe(2);
 });
 
-test("Decrementation", () => {
+test("decrement", () => {
     const vals = decrement(1);
     const result_1 = vals[0];
     const num_1 = vals[1];
@@ -115,42 +115,42 @@ test("Decrementation", () => {
 });
 
 // Comparative operator
-test("Strict equality operator", () => {
-    const result_1 = strictEqualityOperator(1, 1);
-    const result_2 = strictEqualityOperator(1, "1");
+test("strictEquality", () => {
+    const result_1 = strictEquality(1, 1);
+    const result_2 = strictEquality(1, "1");
     const obj_1 = {};
     const obj_2 = {};
-    const result_3 = strictEqualityOperator(obj_1, obj_2);
-    const result_4 = strictEqualityOperator(obj_1, obj_1);
+    const result_3 = strictEquality(obj_1, obj_2);
+    const result_4 = strictEquality(obj_1, obj_1);
     expect(result_1).toBe(true);
     expect(result_2).toBe(false);
     expect(result_3).toBe(false);
     expect(result_4).toBe(true);
 });
 
-test("Strict inequality operator", () => {
-    const result_1 = strictInequalOperator(1, 1);
-    const result_2 = strictInequalOperator(1, "1");
+test("strictInequal", () => {
+    const result_1 = strictInequal(1, 1);
+    const result_2 = strictInequal(1, "1");
     const obj_1 = {};
     const obj_2 = {};
-    const result_3 = strictInequalOperator(obj_1, obj_2);
-    const result_4 = strictInequalOperator(obj_1, obj_1);
+    const result_3 = strictInequal(obj_1, obj_2);
+    const result_4 = strictInequal(obj_1, obj_1);
     expect(result_1).toBe(false);
     expect(result_2).toBe(true);
     expect(result_3).toBe(true);
     expect(result_4).toBe(false);
 });
 
-test("Equality operator", () => {
-    const result_1 = equalOperator(1, 1);
-    const result_2 = equalOperator(1, "1");
-    const result_3 = equalOperator(0, false);
-    const result_4 = equalOperator(0, null);
-    const result_5 = equalOperator(null, undefined);
+test("equal", () => {
+    const result_1 = equal(1, 1);
+    const result_2 = equal(1, "1");
+    const result_3 = equal(0, false);
+    const result_4 = equal(0, null);
+    const result_5 = equal(null, undefined);
     const obj_1 = {};
     const obj_2 = {};
-    const result_6 = equalOperator(obj_1, obj_2);
-    const result_7 = equalOperator(obj_1, obj_1);
+    const result_6 = equal(obj_1, obj_2);
+    const result_7 = equal(obj_1, obj_1);
     expect(result_1).toBe(true);
     expect(result_2).toBe(true);
     expect(result_3).toBe(true);
@@ -160,16 +160,16 @@ test("Equality operator", () => {
     expect(result_7).toBe(true);
 });
 
-test("Inequality operator", () => {
-    const result_1 = inequalOperator(1, 1);
-    const result_2 = inequalOperator(1, "01");
-    const result_3 = inequalOperator(0, false);
-    const result_4 = inequalOperator(0, null);
-    const result_5 = inequalOperator(null, undefined);
+test("inequal", () => {
+    const result_1 = inequal(1, 1);
+    const result_2 = inequal(1, "01");
+    const result_3 = inequal(0, false);
+    const result_4 = inequal(0, null);
+    const result_5 = inequal(null, undefined);
     const obj_1 = {};
     const obj_2 = {};
-    const result_6 = inequalOperator(obj_1, obj_2);
-    const result_7 = inequalOperator(obj_1, obj_1);
+    const result_6 = inequal(obj_1, obj_2);
+    const result_7 = inequal(obj_1, obj_1);
     expect(result_1).toBe(false);
     expect(result_2).toBe(false);
     expect(result_3).toBe(false);
@@ -179,61 +179,61 @@ test("Inequality operator", () => {
     expect(result_7).toBe(false);
 });
 
-test("Greater than", () => {
-  const result_1 = greater_than(20, 10);
-  const result_2 = greater_than(10, 20);
+test("greaterThan", () => {
+  const result_1 = greaterThan(20, 10);
+  const result_2 = greaterThan(10, 20);
   expect(result_1).toBe(true);
   expect(result_2).toBe(false);
 });
 
-test("Greater than or equal to", () => {
-  const result_1 = greater_than_or_equal_to(20, 10);
-  const result_2 = greater_than_or_equal_to(10, 20);
-  const result_3 = greater_than_or_equal_to(20, 20);
+test("greaterThan_or_equalTo", () => {
+  const result_1 = greaterThan_or_equalTo(20, 10);
+  const result_2 = greaterThan_or_equalTo(10, 20);
+  const result_3 = greaterThan_or_equalTo(20, 20);
   expect(result_1).toBe(true);
   expect(result_2).toBe(false);
   expect(result_3).toBe(true);
 });
 
-test("Less than", () => {
-  const result_1 = less_than(20, 10);
-  const result_2 = less_than(10, 20);
+test("lessThan", () => {
+  const result_1 = lessThan(20, 10);
+  const result_2 = lessThan(10, 20);
   expect(result_1).toBe(false);
   expect(result_2).toBe(true);
 });
 
-test("Less than or equal to", () => {
-  const result_1 = less_than_or_equal_to(20, 10);
-  const result_2 = less_than_or_equal_to(10, 20);
-  const result_3 = less_than_or_equal_to(20, 20);
+test("lessThan_or_equalTo", () => {
+  const result_1 = lessThan_or_equalTo(20, 10);
+  const result_2 = lessThan_or_equalTo(10, 20);
+  const result_3 = lessThan_or_equalTo(20, 20);
   expect(result_1).toBe(false);
   expect(result_2).toBe(true);
   expect(result_3).toBe(true);
 });
 
 // Bit operators
-test("Bit AND", () => {
+test("bitAND", () => {
   const result_1 = bitAND(15, 9);
   const result_2 = bitAND(0b1111, 0b1001);
   expect(result_1).toBe(9);
   expect(result_2).toBe(0b1001);
 });
 
-test("Bit OR", () => {
+test("bitOR", () => {
   const result_1 = bitOR(15, 9);
   const result_2 = bitOR(0b1111, 0b1001);
   expect(result_1).toBe(15);
   expect(result_2).toBe(0b1111);
 });
 
-test("Bit XOR", () => {
+test("bitXOR", () => {
   const result_1 = bitXOR(15, 9);
   const result_2 = bitXOR(0b1111, 0b1001);
   expect(result_1).toBe(6);
   expect(result_2).toBe(0b0110);
 });
 
-test("Bit NOT", () => {
+test("bitNOT", () => {
   const result_1 = bitNOT(15);
   const result_2 = bitNOT(0b1111);
   const result_3 = bitNOT(0);
@@ -244,25 +244,25 @@ test("Bit NOT", () => {
   expect(result_4).toBe(0);
 });
 
-test("Left shift", () => {
+test("leftShift", () => {
   const result_1 = leftShift(9, 2);
   const result_2 = leftShift(0b1111, 2);
   expect(result_1).toBe(36);
   expect(result_2).toBe(0b111100);
 });
 
-test("Right shift", () => {
+test("rightShift", () => {
   const result = rightShift(-9, 2);
   expect(result).toBe(-3);
 });
 
-test("Zero right shift", () => {
+test("zeroRightShift", () => {
   const result = zeroRightShift(-9, 2);
   expect(result).toBe(1073741821);
 });
 
 // Assignment operators
-test("Assign object", () => {
+test("assignObj", () => {
   const key = "name";
   const val = "Oasist";
   const obj = assignObj(key, val);
@@ -272,7 +272,7 @@ test("Assign object", () => {
 });
 
 // Logical operators
-test("Logical AND", () => {
+test("logicalAND", () => {
   const result_1 = logicalAND(true, "Foo");
   const result_2 = logicalAND(false, "Foo");
   const result_3 = logicalAND("Bar", "Foo");
@@ -289,7 +289,7 @@ test("Logical AND", () => {
   expect(result_7).toBe(null);
 });
 
-test("Logical OR", () => {
+test("logicalOR", () => {
   const result_1 = logicalOR(true, "Foo");
   const result_2 = logicalOR(false, "Foo");
   const result_3 = logicalOR("Bar", "Foo");
@@ -306,7 +306,7 @@ test("Logical OR", () => {
   expect(result_7).toBe("Foo");
 });
 
-test("Logical NOT", () => {
+test("logicalNOT", () => {
   const result_1 = logicalNOT(true);
   const result_2 = logicalNOT(false);
   const result_3 = logicalNOT(0);
@@ -323,12 +323,12 @@ test("Logical NOT", () => {
   expect(result_7).toBe(false);
 });
 
-test("Logical double NOT", () => {
+test("logicalNOT", () => {
   const result = logicalNOT("Foo");
   expect(result).toBe(false);
 });
 
-test("Coalesce nullish values", () => {
+test("coalesceNullishValues", () => {
   const result_1 = coalesceNullishValues(null, "Foo");
   const result_2 = coalesceNullishValues(undefined, "Foo");
   const result_3 = coalesceNullishValues(true, "Foo");
@@ -343,9 +343,9 @@ test("Coalesce nullish values", () => {
   expect(result_6).toBe("Bar");
 });
 
-test("Ternary operator", () => {
-  const result_1 = ternaryOperator(true, "Foo", "Bar");
-  const result_2 = ternaryOperator(false, "Foo", "Bar");
+test("ternary", () => {
+  const result_1 = ternary(true, "Foo", "Bar");
+  const result_2 = ternary(false, "Foo", "Bar");
   expect(result_1).toBe("Foo");
   expect(result_2).toBe("Bar");
 });

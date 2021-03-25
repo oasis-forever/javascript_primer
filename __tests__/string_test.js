@@ -9,13 +9,13 @@ import {
   replaceString
 } from "../lib/string";
 
-test("Remove duplicate space", () => {
+test("removeDuplicateSpace", () => {
   const str = "a     b    c      d";
   const newStr = removeDuplicateSpace(str);
   expect(newStr).toBe("a b c d");
 });
 
-test("Get strings from a text", () => {
+test("String#slice/String#substring", () => {
   const text = "You said good-bye and I said hello.";
   const str_1 = text.slice(4);
   const str_2 = text.substring(4);
@@ -26,19 +26,27 @@ test("Get strings from a text", () => {
   expect(str_3).toBe("u said");
   expect(str_4).toBe("u said");
   const str_5 = text.slice(-1);
-  const str_6 = text.substring(-1); // same as text.substring(0);
+  // Same as text.substring(0)
+  const str_6 = text.substring(-1);
   expect(str_5).toBe(".");
   expect(str_6).toBe("You said good-bye and I said hello.");
   const str_7 = text.slice(9, 3);
-  const str_8 = text.substring(9, 3); // same as text.substring(3, 9);
+  // Same as text.substring(3, 9)
+  const str_8 = text.substring(9, 3);
   expect(str_7).toBe("");
   expect(str_8).toBe(" said ");
-  // Serach string
+});
+
+test("String#indexOf/String#lastIndexOf", () => {
+  const text = "You said good-bye and I said hello.";
   const index_1 = text.indexOf("said");
   const index_2 = text.lastIndexOf("said");
   expect(index_1).toBe(4);
   expect(index_2).toBe(24);
-  // Boolean
+});
+
+test("String#startsWith/String#endsWith/String#includes/RegExp#test", () => {
+  const text = "You said good-bye and I said hello.";
   const result_1 = text.startsWith("You said");
   const result_2 = /^You said/.test(text);
   const result_3 = text.startsWith("I said");
@@ -65,27 +73,27 @@ test("Get strings from a text", () => {
   expect(result_12).toBe(true);
 });
 
-test("Get a host name from a URL", () => {
+test("getBaseURL", () => {
   const url  = "https://example.com?param=1";
   const host = getBaseURL(url);
   expect(host).toBe("https://example.com");
 });
 
-test("Get a query string from a URL", () => {
+test("getURLQueryString", () => {
   const url = "https://example.com?param=1";
   const querystr = getURLQueryString(url);
   expect(querystr).toBe("param=1");
 });
 
 // Regular expression
-test("Get an index in String#search", () => {
+test("getIndexInSearch", () => {
   const text    = "ABC123EFG";
   const pattern = /\d{3}/;
   const index   = getIndexInSearch(text, pattern);
   expect(index).toBe(3);
 });
 
-test("Get an index in String#match", () => {
+test("getIndexInMatch", () => {
   const text_1 = "ABC123EFG";
   const pattern_1 = /[a-zA-Z]+/;
   const pattern_2 = /[a-zA-Z]+/g;
@@ -100,7 +108,7 @@ test("Get an index in String#match", () => {
   expect(`"${result_3[0]}", ${result_3[1]}, index: ${result_3.index}, input: "${result_3.input}", groups: "${result_3.groups}"`).toBe('"ECMAScript 6", 6, index: 0, input: "ECMAScript 6", groups: "undefined"');
 });
 
-test("Get an index in String#matchAll", () => {
+test("getIndexInMatchAll", () => {
   const text_1 = "ABC123EFG";
   const pattern_1 = /[a-zA-Z]+/g;
   const info_1 = getIndexInMatchAll(text_1, pattern_1);
@@ -119,7 +127,7 @@ test("Get an index in String#matchAll", () => {
   ]);
 });
 
-test("Replace a string in a text", () => {
+test("replaceString", () => {
   const text = "HogeHogeFooBarPiyoHoge";
   const pattern_1 = "Hoge";
   const pattern_2 = /Hoge/;
