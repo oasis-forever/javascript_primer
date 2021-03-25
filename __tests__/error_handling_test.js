@@ -1,6 +1,7 @@
 import {
   handleError1,
-  handleError2
+  handleError2,
+  handleError3
 } from "../lib/error_handling";
 
 test("handleError1", () => {
@@ -12,4 +13,9 @@ test("handleError1", () => {
 test("handleError2", () => {
   const message = handleError2();
   expect(message).toBe("This line is executed every time.");
+});
+
+test("handleError3", () => {
+  const message = handleError3();
+  expect(message).toBe("An exception raised!!");
 });
