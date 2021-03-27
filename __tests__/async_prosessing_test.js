@@ -73,3 +73,9 @@ test("getResolvedValue", () => {
   const val = promise.then(getResolvedValue);
   expect(val).resolves.toBe("This promise is resolved.");
 });
+
+test("Promise#reject", () => {
+  const promise = Promise.reject(new Error("Rejected"));
+  const val = promise.catch(onRejected);
+  expect(val).resolves.toBe("Rejected");
+});
