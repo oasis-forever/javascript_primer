@@ -1,10 +1,14 @@
 "use strict;"
 
+jest.useFakeTimers();
+
 import {
   blockTime,
   getAsyncProcesses1,
   getAsyncProcesses2,
   handleAsyncError,
+  onFulfilled,
+  onRejected,
   dummyFetch
 } from "../lib/async_prosessing";
 
@@ -43,11 +47,16 @@ test("handleAsyncError", () => {
   // expect(message).toBe("It succeeds in catching an error.");
 });
 
-test("dummyFetch", () => {
-  const successRes = dummyFetch("/success/sample.json");
-  const failureRes = dummyFetch("/failure/sample.json");
-  expect(successRes).toBe(undefined);
-  expect(failureRes).toBe(undefined);
-  // expect(successRes).toStrictEqual({ body: 'Response body of /success/sample.json' });
-  // expect(failureRes).toBe("Not Found");
+test("dummyFetch", async () => {
+  const successRes1 = dummyFetch("/success/sample.json").then(onFulfilled, onRejected);
+  const successRes2 = dummyFetch("/success/sample.json").then();
+  const failureRes1 = dummyFetch("/failure/sample.json").then(onFulfilled, onRejected);
+  const failureRes2 = dummyFetch("/failure/sample.json").then(undefined, onRejected);
+  const failureRes3 = dummyFetch("/failure/sample.json").catch(onRejected);
+  jest.runAllTimers();
+  expect(successRes1).resolves.toStrictEqual({ body: "Response body of /success/sample.json" });
+  expect(successRes2).resolves.toStrictEqual({ body: "Response body of /success/sample.json" });
+  expect(failureRes1).resolves.toBe("Not Found");
+  expect(failureRes2).resolves.toBe("Not Found");
+  expect(failureRes3).resolves.toBe("Not Found");
 });
