@@ -1,7 +1,8 @@
 import {
   handleError1,
   handleError2,
-  handleError3
+  handleError3,
+  referenceError
 } from "../lib/error_handling";
 
 test("handleError1", () => {
@@ -18,4 +19,12 @@ test("handleError2", () => {
 test("handleError3", () => {
   const message = handleError3();
   expect(message).toBe("An exception raised!!");
+});
+
+// Built-in error object
+test("referenceError", () => {
+  const error = referenceError();
+  expect(error instanceof ReferenceError).toBe(true);
+  expect(error.name).toBe("ReferenceError");
+  expect(error.message).toBe("x is not defined");
 });
