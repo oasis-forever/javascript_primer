@@ -5,7 +5,8 @@ import {
   handleError2,
   handleError3,
   referenceError,
-  syntaxError
+  syntaxError,
+  typeError
 } from "../lib/error_handling";
 
 test("handleError1", () => {
@@ -33,7 +34,7 @@ test("referenceError", () => {
 });
 
 test("syntaxError", () => {
-  const error = syntaxErrorError();
+  const error = syntaxError();
   expect(error instanceof SyntaxError).toBe(true);
   expect(error.name).toBe("SyntaxError");
   expect(error.message).toBe("Unexpected token '!'");
