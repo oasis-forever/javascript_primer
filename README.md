@@ -2,13 +2,14 @@
 
 * WSL(Ubuntu 20.04.1 LTS (GNU/Linux 4.19.128-microsoft-standard x86_64))
 * node v14.16.0
-* npm 7.6.3
+* npm 6.14.11
 
 ## 2. Reference
 
 * [JavaScript Primer](https://jsprimer.net/)
 * [JavaScriptでも単体テストを導入しよう！ってかテストって何？](https://sbfl.net/blog/2019/01/20/javascript-unittest/)
 * [JEST > Using Matchers](https://jestjs.io/docs/using-matchers)
+  * [Timer Mocks](https://jestjs.io/docs/timer-mocks)
 
 ## 3. JEST install for Unit Test
 
