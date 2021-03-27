@@ -9,7 +9,8 @@ import {
   handleAsyncError,
   onFulfilled,
   onRejected,
-  dummyFetch
+  dummyFetch,
+  throwPromise
 } from "../lib/async_prosessing";
 
 test("blockTime", () => {
@@ -59,4 +60,9 @@ test("dummyFetch", async () => {
   expect(failureRes1).resolves.toBe("Not Found");
   expect(failureRes2).resolves.toBe("Not Found");
   expect(failureRes3).resolves.toBe("Not Found");
+});
+
+test("throwPromise", () => {
+  const error = throwPromise().catch(onRejected);
+  expect(error).resolves.toBe("An error raised");
 });
