@@ -36,3 +36,10 @@ test("syntaxError", () => {
   expect(error.name).toBe("SyntaxError");
   expect(error.message).toBe("Unexpected token '!'");
 });
+
+test("typeError", () => {
+  const error = typeError();
+  expect(error instanceof TypeError).toBe(true);
+  expect(error.name).toBe("TypeError");
+  expect(error.message).toBe("obj is not a function");
+});
