@@ -2,7 +2,8 @@ import {
   handleError1,
   handleError2,
   handleError3,
-  referenceError
+  referenceError,
+  syntaxError
 } from "../lib/error_handling";
 
 test("handleError1", () => {
@@ -27,4 +28,11 @@ test("referenceError", () => {
   expect(error instanceof ReferenceError).toBe(true);
   expect(error.name).toBe("ReferenceError");
   expect(error.message).toBe("x is not defined");
+});
+
+test("syntaxError", () => {
+  const error = syntaxErrorError();
+  expect(error instanceof SyntaxError).toBe(true);
+  expect(error.name).toBe("SyntaxError");
+  expect(error.message).toBe("Unexpected token '!'");
 });
