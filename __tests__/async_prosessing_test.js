@@ -68,7 +68,7 @@ test("throwPromise", () => {
   expect(error).resolves.toBe("An error raised");
 });
 
-test("getResolvedValue", () => {
+test("Promise#resolve", () => {
   const promise = Promise.resolve("This promise is resolved.");
   const val = promise.then(getResolvedValue);
   expect(val).resolves.toBe("This promise is resolved.");
