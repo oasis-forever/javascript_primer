@@ -4,7 +4,8 @@ import {
   blockTime,
   getAsyncProcesses1,
   getAsyncProcesses2,
-  handleAsyncError
+  handleAsyncError,
+  dummyFetch
 } from "../lib/async_prosessing";
 
 test("blockTime", () => {
@@ -40,4 +41,13 @@ test("handleAsyncError", () => {
   const message = handleAsyncError();
   expect(message).toBe(undefined);
   // expect(message).toBe("It succeeds in catching an error.");
+});
+
+test("dummyFetch", () => {
+  const successRes = dummyFetch("/success/sample.json");
+  const failureRes = dummyFetch("/failure/sample.json");
+  expect(successRes).toBe(undefined);
+  expect(failureRes).toBe(undefined);
+  // expect(successRes).toStrictEqual({ body: 'Response body of /success/sample.json' });
+  // expect(failureRes).toBe("Not Found");
 });
