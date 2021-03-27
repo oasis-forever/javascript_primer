@@ -1,3 +1,5 @@
+"use strict;"
+
 import {
   getUserName1,
   getUserName2,

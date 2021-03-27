@@ -1,3 +1,5 @@
+"use strict;"
+
 import {
   handleError1,
   handleError2,

@@ -1,3 +1,5 @@
+"use strict;"
+
 import {
   getJavaScriptVersion1,
   getJavaScriptVersion2

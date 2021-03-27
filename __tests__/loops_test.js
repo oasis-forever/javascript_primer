@@ -1,3 +1,5 @@
+"use strict;"
+
 import {
   addInWhile1,
   addInWhile2,

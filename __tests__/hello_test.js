@@ -1,3 +1,5 @@
+"use strict;"
+
 import { hello } from "../lib/hello";
 
 test("hello", () => {
