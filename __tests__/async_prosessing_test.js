@@ -3,7 +3,8 @@
 import {
   blockTime,
   getAsyncProcesses1,
-  getAsyncProcesses2
+  getAsyncProcesses2,
+  handleAsyncError
 } from "../lib/async_prosessing";
 
 test("blockTime", () => {
@@ -33,4 +34,10 @@ test("getAsyncProcesses2", () => {
     "The blocking process is done.",
     // "It took 1023 milliseconds till an async process started."
   ]);
+});
+
+test("handleAsyncError", () => {
+  const message = handleAsyncError();
+  expect(message).toBe(undefined);
+  // expect(message).toBe("It succeeds in catching an error.");
 });
