@@ -164,4 +164,12 @@ test("delay", async () => {
   });
   jest.runAllTimers();
   expect(result).resolves.toStrictEqual([1, 2, 3]);
+  const racePromise = Promise.race([
+    delay(1),
+    delay(32),
+    delay(64),
+    delay(128)
+  ]);
+  const winner = racePromise.then(onFulfilled);
+  expect(winner).resolves.toBe(1);
 });
