@@ -30,13 +30,13 @@ You will be asked some questions, but just keep tapping "Enter" key.
 ### 4-2. Install required packages
 
 ```bash
-$ npm install --save-dev jest babel-jest babel-core@^7.0.0-bridge.0 @babel/core @babel/preset-env
+$ npm install --save-dev jest babel-jest babel-core @babel/core @babel/preset-env
 ```
 
 ### 4-3. Install a plugin with babel to convert JEST to CommonJS
 
 ```bash
-$ npm install --save-dev @babel/plugin-transform-modules-commonjs
+$ npm install --save-dev jest babel-jest
 ```
 
 ### 4-4. Run a unittest
