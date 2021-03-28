@@ -12,7 +12,8 @@ import {
   dummyFetch,
   throwPromise,
   asyncTask,
-  asyncMultiply
+  asyncMultiply,
+  getPromiseInCallbackFunc
 } from "../lib/async_prosessing";
 
 test("blockTime", () => {
@@ -98,4 +99,9 @@ test("asyncTask", async () => {
 test("asyncMultiply", async () => {
   const product = Promise.resolve(1).then(asyncMultiply).then(asyncMultiply);
   expect(product).resolves.toBe(100);
+});
+
+test("getPromiseInCallbackFunc", async () => {
+  const vals = getPromiseInCallbackFunc();
+  expect(vals).resolves.toStrictEqual([2, 3]);
 });
