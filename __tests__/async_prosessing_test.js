@@ -10,7 +10,8 @@ import {
   onFulfilled,
   onRejected,
   dummyFetch,
-  throwPromise
+  throwPromise,
+  asyncTask
 } from "../lib/async_prosessing";
 
 test("blockTime", () => {
@@ -87,4 +88,8 @@ test("promiseChain", async () => {
   });
   expect(message).resolves.toBe("This is the second promise chain.");
 });
+
+test("asyncTask", async () => {
+  const message = asyncTask(11).then(onFulfilled).catch(onRejected);
+  expect(message).resolves.toBe("The value fulfills the requirement.");
 });
