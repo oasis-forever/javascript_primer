@@ -15,7 +15,8 @@ import {
   asyncMultiply,
   getPromiseInCallbackFunc,
   asyncTask2,
-  delay
+  delay,
+  timeOut
 } from "../lib/async_prosessing";
 
 test("blockTime", () => {
@@ -172,4 +173,12 @@ test("delay", async () => {
   ]);
   const winner = racePromise.then(onFulfilled);
   expect(winner).resolves.toBe(1);
+});
+
+test("timeOut", async () => {
+  const result = Promise.race([
+    dummyFetch("/success/sample.json"),
+    timeOut(500)
+  ]).then(onFulfilled).catch(onRejected);
+  expect(result).resolves.toThrow("Timeout: 500 milliseconds have passed.");
 });
