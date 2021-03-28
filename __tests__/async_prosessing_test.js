@@ -78,3 +78,13 @@ test("Promise#reject", () => {
   const val = promise.catch(onRejected);
   expect(val).resolves.toBe("Rejected");
 });
+
+test("promiseChain", () => {
+  expect(
+    Promise.resolve().then(() => {
+      return "This is the first promise chain.";
+    }).then(() => {
+      return "This is the second promise chain.";
+    })
+  ).resolves.toBe("This is the second promise chain.");
+});
