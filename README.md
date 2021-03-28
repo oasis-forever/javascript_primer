@@ -11,9 +11,15 @@
 * [JEST > Using Matchers](https://jestjs.io/docs/using-matchers)
   * [Timer Mocks](https://jestjs.io/docs/timer-mocks)
 
-## 3. JEST install for Unit Test
+### 3. Clone this repogitory
 
-### 3-1. Build a Node.js project
+```bash
+git clone git@github.com:oasis-forever/javascript_primer.git
+```
+
+## 4. JEST install for Unit Test
+
+### 4-1. Build a Node.js project
 
 ```bash
 $ npm init
@@ -21,19 +27,19 @@ $ npm init
 
 You will be asked some questions, but just keep tapping "Enter" key.
 
-### 3-2. Install required packages
+### 4-2. Install required packages
 
 ```bash
 $ npm install --save-dev jest babel-jest babel-core@^7.0.0-bridge.0 @babel/core @babel/preset-env
 ```
 
-### 3-3. Install a plugin with babel to convert JEST to CommonJS
+### 4-3. Install a plugin with babel to convert JEST to CommonJS
 
 ```bash
 $ npm install --save-dev @babel/plugin-transform-modules-commonjs
 ```
 
-### 3-4. Run a unittest
+### 4-4. Run a unittest
 
 To execuate all unittests, run `npx jest`.
 
