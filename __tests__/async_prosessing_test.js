@@ -62,24 +62,24 @@ test("dummyFetch", async () => {
   expect(failureRes3).resolves.toBe("Not Found");
 });
 
-test("throwPromise", () => {
+test("throwPromise", async () => {
   const error = throwPromise().catch(onRejected);
-  expect(error).resolves.toBe("An error raised");
+  expect(error).resolves.toThrow("An error raised");
 });
 
-test("Promise#resolve", () => {
+test("Promise#resolve", async () => {
   const promise = Promise.resolve("This promise is resolved.");
   const val = promise.then(onFulfilled);
   expect(val).resolves.toBe("This promise is resolved.");
 });
 
-test("Promise#reject", () => {
+test("Promise#reject", async () => {
   const promise = Promise.reject(new Error("Rejected"));
   const val = promise.catch(onRejected);
-  expect(val).resolves.toBe("Rejected");
+  expect(val).resolves.toThrow("Rejected");
 });
 
-test("promiseChain", () => {
+test("promiseChain", async () => {
   const message = Promise.resolve().then(() => {
     return "This is the first promise chain.";
   }).then(() => {
