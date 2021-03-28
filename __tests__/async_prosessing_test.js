@@ -11,7 +11,7 @@ import {
   onRejected,
   dummyFetch,
   throwPromise,
-  asyncTask,
+  asyncTask1,
   asyncMultiply,
   getPromiseInCallbackFunc
 } from "../lib/async_prosessing";
@@ -91,8 +91,8 @@ test("promiseChain", async () => {
   expect(message).resolves.toBe("This is the second promise chain.");
 });
 
-test("asyncTask", async () => {
-  const message = asyncTask(11).then(onFulfilled).catch(onRejected);
+test("asyncTask1", async () => {
+  const message = asyncTask1(11).then(onFulfilled).catch(onRejected);
   expect(message).resolves.toBe("The value fulfills the requirement.");
 });
 
