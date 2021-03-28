@@ -99,6 +99,12 @@ test("dummyFetch", async () => {
     { body: "Response body of /success/A.json" },
     { body: "Response body of /success/B.json" }
   ]);
+  const fetchedPromise2 = Promise.all([
+    dummyFetch("/success/A.json"),
+    dummyFetch("/failure/B.json")
+  ]);
+  const result_4 = fetchedPromise2.catch(onRejected);
+  expect(result_4).resolves.toBe("Not Found");
 });
 
 test("throwPromise", async () => {
