@@ -14,7 +14,8 @@ import {
   asyncTask1,
   asyncMultiply,
   getPromiseInCallbackFunc,
-  asyncTask2
+  asyncTask2,
+  delay
 } from "../lib/async_prosessing";
 
 test("blockTime", () => {
@@ -136,4 +137,14 @@ test("asyncTask2", async () => {
   expect(result_1).resolves.toStrictEqual(["Promise#then", "Promise#finally"]);
   expect(result_2).resolves.toStrictEqual(["Promise#catch", "Promise#finally"]);
 });
+
+test("delay", async () => {
+  const promise_1 = delay(1);
+  const promise_2 = delay(2);
+  const promise_3 = delay(3);
+  const result = Promise.all([promise_1, promise_2, promise_3]).then(values => {
+    return values;
+  });
+  jest.runAllTimers();
+  expect(result).resolves.toStrictEqual([1, 2, 3]);
 });
