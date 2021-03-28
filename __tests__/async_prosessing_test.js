@@ -10,8 +10,7 @@ import {
   onFulfilled,
   onRejected,
   dummyFetch,
-  throwPromise,
-  getResolvedValue
+  throwPromise
 } from "../lib/async_prosessing";
 
 test("blockTime", () => {
@@ -70,7 +69,7 @@ test("throwPromise", () => {
 
 test("Promise#resolve", () => {
   const promise = Promise.resolve("This promise is resolved.");
-  const val = promise.then(getResolvedValue);
+  const val = promise.then(onFulfilled);
   expect(val).resolves.toBe("This promise is resolved.");
 });
 
