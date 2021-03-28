@@ -88,11 +88,11 @@ test("dummyFetch", async () => {
     { body: "Response body of /success/A.json" },
     { body: "Response body of /success/B.json" }
   ]);
-  const fetchedPromise = Promise.all([
+  const fetchedPromise1 = Promise.all([
     dummyFetch("/success/A.json"),
     dummyFetch("/success/B.json")
   ]);
-  const result_3 = fetchedPromise.then(responses => {
+  const result_3 = fetchedPromise1.then(responses => {
     return responses;
   });
   expect(result_3).resolves.toStrictEqual([
