@@ -66,15 +66,15 @@ test("dummyFetch", async () => {
   expect(failureRes3).resolves.toBe("Not Found");
   // Flag of resource availability
   let isLoading = true;
-  const result1 = dummyFetch("/success/sample.json")
+  const result_1 = dummyFetch("/success/sample.json")
   .then(onFulfilled).catch(onRejected).finally(() => {
     isLoading = false;
     return isLoading;
   });
-  expect(result1).resolves.toBe(false);
+  expect(result_1).resolves.toBe(false);
   // Get some resources
   const responses = [];
-  const result2 = dummyFetch("/success/A.json")
+  const result_2 = dummyFetch("/success/A.json")
   .then(response => {
     responses.push(response);
     return dummyFetch("/success/B.json");
@@ -83,7 +83,7 @@ test("dummyFetch", async () => {
   }).then(() => {
     return responses;
   });
-  expect(result2).resolves.toStrictEqual([
+  expect(result_2).resolves.toStrictEqual([
     { body: "Response body of /success/A.json" },
     { body: "Response body of /success/B.json" }
   ]);
@@ -131,8 +131,9 @@ test("getPromiseInCallbackFunc", async () => {
 });
 
 test("asyncTask2", async () => {
-  const result1 = asyncTask2(20);
-  const result2 = asyncTask2(9);
-  expect(result1).resolves.toStrictEqual(["Promise#then", "Promise#finally"]);
-  expect(result2).resolves.toStrictEqual(["Promise#catch", "Promise#finally"]);
+  const result_1 = asyncTask2(20);
+  const result_2 = asyncTask2(9);
+  expect(result_1).resolves.toStrictEqual(["Promise#then", "Promise#finally"]);
+  expect(result_2).resolves.toStrictEqual(["Promise#catch", "Promise#finally"]);
+});
 });
