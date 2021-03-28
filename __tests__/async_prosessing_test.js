@@ -11,7 +11,8 @@ import {
   onRejected,
   dummyFetch,
   throwPromise,
-  asyncTask
+  asyncTask,
+  asyncMultiply
 } from "../lib/async_prosessing";
 
 test("blockTime", () => {
@@ -92,4 +93,9 @@ test("promiseChain", async () => {
 test("asyncTask", async () => {
   const message = asyncTask(11).then(onFulfilled).catch(onRejected);
   expect(message).resolves.toBe("The value fulfills the requirement.");
+});
+
+test("asyncMultiply", async () => {
+  const product = Promise.resolve(1).then(asyncMultiply).then(asyncMultiply);
+  expect(product).resolves.toBe(100);
 });
