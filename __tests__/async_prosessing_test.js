@@ -66,12 +66,27 @@ test("dummyFetch", async () => {
   expect(failureRes3).resolves.toBe("Not Found");
   // Flag of resource availability
   let isLoading = true;
-  const result = dummyFetch("/success/sample.json")
+  const result1 = dummyFetch("/success/sample.json")
   .then(onFulfilled).catch(onRejected).finally(() => {
     isLoading = false;
     return isLoading;
   });
-  expect(result).resolves.toBe(false);
+  expect(result1).resolves.toBe(false);
+  // Get some resources
+  const responses = [];
+  const result2 = dummyFetch("/success/A.json")
+  .then(response => {
+    responses.push(response);
+    return dummyFetch("/success/B.json");
+  }).then(response => {
+    responses.push(response);
+  }).then(() => {
+    return responses;
+  });
+  expect(result2).resolves.toStrictEqual([
+    { body: "Response body of /success/A.json" },
+    { body: "Response body of /success/B.json" }
+  ]);
 });
 
 test("throwPromise", async () => {
