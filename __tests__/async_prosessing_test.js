@@ -71,7 +71,7 @@ test("dummyFetch", async () => {
     isLoading = false;
     return isLoading;
   });
-  expect(result_1).resolves.toBe(false);
+  expect(result_1).resolves.toStrictEqual({ body: "Response body of /success/sample.json" });
   // Get some resources
   const responses = [];
   const result_2 = dummyFetch("/success/A.json")
