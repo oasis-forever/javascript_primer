@@ -80,11 +80,11 @@ test("Promise#reject", () => {
 });
 
 test("promiseChain", () => {
-  expect(
-    Promise.resolve().then(() => {
-      return "This is the first promise chain.";
-    }).then(() => {
-      return "This is the second promise chain.";
-    })
-  ).resolves.toBe("This is the second promise chain.");
+  const message = Promise.resolve().then(() => {
+    return "This is the first promise chain.";
+  }).then(() => {
+    return "This is the second promise chain.";
+  });
+  expect(message).resolves.toBe("This is the second promise chain.");
+});
 });
