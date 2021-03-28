@@ -13,7 +13,8 @@ import {
   throwPromise,
   asyncTask1,
   asyncMultiply,
-  getPromiseInCallbackFunc
+  getPromiseInCallbackFunc,
+  asyncTask2
 } from "../lib/async_prosessing";
 
 test("blockTime", () => {
@@ -104,4 +105,11 @@ test("asyncMultiply", async () => {
 test("getPromiseInCallbackFunc", async () => {
   const vals = getPromiseInCallbackFunc();
   expect(vals).resolves.toStrictEqual([2, 3]);
+});
+
+test("asyncTask2", async () => {
+  const result1 = asyncTask2(20);
+  const result2 = asyncTask2(9);
+  expect(result1).resolves.toStrictEqual(["Promise#then", "Promise#finally"]);
+  expect(result2).resolves.toStrictEqual(["Promise#catch", "Promise#finally"]);
 });
