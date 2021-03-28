@@ -64,6 +64,14 @@ test("dummyFetch", async () => {
   expect(failureRes1).resolves.toBe("Not Found");
   expect(failureRes2).resolves.toBe("Not Found");
   expect(failureRes3).resolves.toBe("Not Found");
+  // Flag of resource availability
+  let isLoading = true;
+  const result = dummyFetch("/success/sample.json")
+  .then(onFulfilled).catch(onRejected).finally(() => {
+    isLoading = false;
+    return isLoading;
+  });
+  expect(result).resolves.toBe(false);
 });
 
 test("throwPromise", async () => {
