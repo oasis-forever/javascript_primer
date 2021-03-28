@@ -12,7 +12,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.13.10",
+    "@babel/core": "^7.13.13",
     "@babel/plugin-transform-modules-commonjs": "^7.13.8",
     "@babel/preset-env": "^7.13.12",
     "babel-core": "^7.0.0-bridge.0",
@@ -26,6 +26,5 @@
   "bugs": {
     "url": "https://github.com/oasis-forever/javascript_primer/issues"
   },
-  "homepage": "https://github.com/oasis-forever/javascript_primer#readme",
-  "dependencies": {}
+  "homepage": "https://github.com/oasis-forever/javascript_primer#readme"
 }
