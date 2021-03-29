@@ -2,7 +2,8 @@
 
 import {
   newMap,
-  setMap
+  setMap,
+  getKeys
 } from "../lib/map_and_set";
 
 test("newMap", () => {
@@ -33,4 +34,14 @@ test("setMap", () => {
   expect(map.has("Foo")).toBe(false);
   map.delete("Hoge");
   expect(map.has("Hoge")).toBe(false);
+});
+
+test("getKeys", () => {
+  const entry = [
+    ["key_1", "value_1"],
+    ["key_2", "value_2"]
+  ];
+  const map = newMap(entry);
+  const keys = getKeys(map);
+  expect(keys).toStrictEqual(["key_1", "key_2"]);
 });
