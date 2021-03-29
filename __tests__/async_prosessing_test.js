@@ -16,7 +16,8 @@ import {
   getPromiseInCallbackFunc,
   asyncTask2,
   delay,
-  timeOut
+  timeOut,
+  resolveFunc
 } from "../lib/async_prosessing";
 
 test("blockTime", () => {
@@ -181,4 +182,10 @@ test("timeOut", async () => {
     timeOut(500)
   ]).then(onFulfilled).catch(onRejected);
   expect(result).resolves.toThrow("Timeout: 500 milliseconds have passed.");
+});
+
+test("resolveFunc", () => {
+  const val = resolveFunc("Value");
+  expect(val instanceof Promise).toBe(true);
+  expect(val.then(onFulfilled)).resolves.toBe("This is an Async Function");
 });
