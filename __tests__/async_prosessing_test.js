@@ -18,7 +18,8 @@ import {
   delay,
   timeOut,
   resolveFunc,
-  rejectFunc
+  rejectFunc,
+  exceptionFunc
 } from "../lib/async_prosessing";
 
 test("blockTime", () => {
@@ -190,4 +191,9 @@ test("resolveFunc", () => {
   expect(error instanceof Promise).toBe(true);
   expect(error).resolves.toThrow("Error Raised!!");
 });
+
+test("exceptionFunc", () => {
+  const error = exceptionFunc().catch(onRejected);
+  expect(error instanceof Promise).toBe(true);
+  expect(error).resolves.toThrow("Error Raised!!");
 });
