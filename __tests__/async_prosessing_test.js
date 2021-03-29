@@ -17,7 +17,8 @@ import {
   asyncTask2,
   delay,
   timeOut,
-  resolveFunc
+  resolveFunc,
+  rejectFunc
 } from "../lib/async_prosessing";
 
 test("blockTime", () => {
@@ -185,7 +186,8 @@ test("timeOut", () => {
 });
 
 test("resolveFunc", () => {
-  const val = resolveFunc();
-  expect(val instanceof Promise).toBe(true);
-  expect(val.then(onFulfilled)).resolves.toBe("This is an Async Function");
+  const error = rejectFunc().catch(onRejected);
+  expect(error instanceof Promise).toBe(true);
+  expect(error).resolves.toThrow("Error Raised!!");
+});
 });
