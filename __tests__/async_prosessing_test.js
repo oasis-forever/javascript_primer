@@ -19,7 +19,8 @@ import {
   timeOut,
   resolveFunc,
   rejectFunc,
-  exceptionFunc
+  exceptionFunc,
+  ayancMain1
 } from "../lib/async_prosessing";
 
 test("blockTime", () => {
@@ -196,4 +197,9 @@ test("exceptionFunc", () => {
   const error = exceptionFunc().catch(onRejected);
   expect(error instanceof Promise).toBe(true);
   expect(error).resolves.toThrow("Error Raised!!");
+});
+
+test("ayancMain1", () => {
+  const val = ayancMain1().then(onFulfilled);
+  expect(val).resolves.toBe(42);
 });
