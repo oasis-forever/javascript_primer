@@ -20,7 +20,8 @@ import {
   resolveFunc,
   rejectFunc,
   exceptionFunc,
-  ayancMain1
+  ayancMain1,
+  ayancMain2
 } from "../lib/async_prosessing";
 
 test("blockTime", () => {
@@ -202,4 +203,9 @@ test("exceptionFunc", () => {
 test("ayancMain1", () => {
   const val = ayancMain1().then(onFulfilled);
   expect(val).resolves.toBe(42);
+});
+
+test("ayancMain2", () => {
+  const val = ayancMain2().catch(onRejected);
+  expect(val).resolves.toBe("Error Raised!!");
 });
