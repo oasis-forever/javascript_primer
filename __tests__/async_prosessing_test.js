@@ -55,7 +55,7 @@ test("handleAsyncError", () => {
   // expect(message).toBe("It succeeds in catching an error.");
 });
 
-test("dummyFetch", async () => {
+test("dummyFetch", () => {
   const successRes1 = dummyFetch("/success/sample.json").then(onFulfilled, onRejected);
   const successRes2 = dummyFetch("/success/sample.json").then();
   const failureRes1 = dummyFetch("/failure/sample.json").then(onFulfilled, onRejected);
@@ -109,24 +109,24 @@ test("dummyFetch", async () => {
   expect(result_4).resolves.toBe("Not Found");
 });
 
-test("throwPromise", async () => {
+test("throwPromise", () => {
   const error = throwPromise().catch(onRejected);
   expect(error).resolves.toThrow("An error raised");
 });
 
-test("Promise#resolve", async () => {
+test("Promise#resolve", () => {
   const promise = Promise.resolve("This promise is resolved.");
   const val = promise.then(onFulfilled);
   expect(val).resolves.toBe("This promise is resolved.");
 });
 
-test("Promise#reject", async () => {
+test("Promise#reject", () => {
   const promise = Promise.reject(new Error("Rejected"));
   const val = promise.catch(onRejected);
   expect(val).resolves.toThrow("Rejected");
 });
 
-test("promiseChain", async () => {
+test("promiseChain", () => {
   const message = Promise.resolve().then(() => {
     return "This is the first promise chain.";
   }).then(() => {
@@ -135,29 +135,29 @@ test("promiseChain", async () => {
   expect(message).resolves.toBe("This is the second promise chain.");
 });
 
-test("asyncTask1", async () => {
+test("asyncTask1", () => {
   const message = asyncTask1(11).then(onFulfilled).catch(onRejected);
   expect(message).resolves.toBe("The value fulfills the requirement.");
 });
 
-test("asyncMultiply", async () => {
+test("asyncMultiply", () => {
   const product = Promise.resolve(1).then(asyncMultiply).then(asyncMultiply);
   expect(product).resolves.toBe(100);
 });
 
-test("getPromiseInCallbackFunc", async () => {
+test("getPromiseInCallbackFunc", () => {
   const vals = getPromiseInCallbackFunc();
   expect(vals).resolves.toStrictEqual([2, 3]);
 });
 
-test("asyncTask2", async () => {
+test("asyncTask2", () => {
   const result_1 = asyncTask2(20);
   const result_2 = asyncTask2(9);
   expect(result_1).resolves.toStrictEqual(["Promise#then", "Promise#finally"]);
   expect(result_2).resolves.toStrictEqual(["Promise#catch", "Promise#finally"]);
 });
 
-test("delay", async () => {
+test("delay", () => {
   const promise_1 = delay(1);
   const promise_2 = delay(2);
   const promise_3 = delay(3);
@@ -176,7 +176,7 @@ test("delay", async () => {
   expect(winner).resolves.toBe(1);
 });
 
-test("timeOut", async () => {
+test("timeOut", () => {
   const result = Promise.race([
     dummyFetch("/success/sample.json"),
     timeOut(500)
