@@ -185,7 +185,7 @@ test("timeOut", () => {
 });
 
 test("resolveFunc", () => {
-  const val = resolveFunc("Value");
+  const val = resolveFunc();
   expect(val instanceof Promise).toBe(true);
   expect(val.then(onFulfilled)).resolves.toBe("This is an Async Function");
 });
