@@ -21,7 +21,8 @@ import {
   rejectFunc,
   exceptionFunc,
   ayancMain1,
-  ayancMain2
+  ayancMain2,
+  fetchResourceAB1
 } from "../lib/async_prosessing";
 
 test("blockTime", () => {
@@ -208,4 +209,12 @@ test("ayancMain1", () => {
 test("ayancMain2", () => {
   const val = ayancMain2().catch(onRejected);
   expect(val).resolves.toBe("Error Raised!!");
+});
+
+test("fetchResourceAB1", () => {
+  const responses = fetchResourceAB1().then(onFulfilled);
+  expect(responses).resolves.toStrictEqual([
+    { body: "Response body of /success/A.json" },
+    { body: "Response body of /success/B.json" }
+  ]);
 });
