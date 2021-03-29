@@ -24,7 +24,8 @@ import {
   ayancMain2,
   fetchResourceAB1,
   fetchResourceAB2,
-  fetchResources
+  fetchResources,
+  fetchAllResources
 } from "../lib/async_prosessing";
 
 test("blockTime", () => {
@@ -232,6 +233,15 @@ test("fetchResourceAB2", () => {
 test("fetchResources", () => {
   const resources = ["/success/A.json", "/success/A.json"];
   const result = fetchResources(resources).then(onFulfilled);
+  expect(result).resolves.toStrictEqual([
+    { body: "Response body of /success/A.json" },
+    { body: "Response body of /success/B.json" }
+  ]);
+});
+
+test("fetchAllResources", () => {
+  const resources = ["/success/A.json", "/success/A.json"];
+  const result = fetchAllResources(resources).then(onFulfilled);
   expect(result).resolves.toStrictEqual([
     { body: "Response body of /success/A.json" },
     { body: "Response body of /success/B.json" }
