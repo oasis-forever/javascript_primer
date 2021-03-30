@@ -5,7 +5,8 @@ import {
   setMap,
   getKeys,
   getValues,
-  getEntries
+  getEntries,
+  ShoppingCart
 } from "../lib/map_and_set";
 
 test("newMap", () => {
@@ -66,4 +67,19 @@ test("getEntries", () => {
   const map = newMap(entry);
   const entries = getEntries(map);
   expect(entries).toStrictEqual(["key_1: value_1", "key_2: value_2"]);
+});
+
+test("shoppingCart", () => {
+  const shoppingCart = new ShoppingCart();
+  const items = [
+    { name: "Apple", price: 200},
+    { name: "Orange", price: 150}
+  ];
+  shoppingCart.addToCart(items[0]);
+  shoppingCart.addToCart(items[0]);
+  shoppingCart.addToCart(items[1]);
+  const sum = shoppingCart.getTotalPrice();
+  expect(sum).toBe(550);
+  const itemsInCart = shoppingCart.getItemsInCart()
+  expect(itemsInCart).toBe("Apple: 2, Orange: 1");
 });
