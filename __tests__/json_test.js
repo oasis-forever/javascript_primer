@@ -61,4 +61,15 @@ test("stringifyObject", () => {
   expect(error).toBe(
     "Converting circular structure to JSON\n    --> starting at object with constructor 'Object'\n    --- property 'self' closes the circle"
   );
+  // toJSON serialise
+  const obj_10 = {
+    foo: "foo",
+    toJSON() {
+      return "bar";
+    }
+  };
+  const json_10 = stringifyObject(obj_10);
+  const json_11 = stringifyObject({ x: obj_10 });
+  expect(json_10).toStrictEqual('"bar"');
+  expect(json_11).toStrictEqual('{\n  "x": "bar"\n}');
 })
