@@ -4,7 +4,8 @@ import {
   getRandom,
   getMax,
   getMin,
-  getFloor
+  getFloor,
+  getCeil
 } from "../lib/math";
 
 test("getRandom", () => {
@@ -31,4 +32,13 @@ test("getFloor", () => {
   const floor_2 = getFloor(float_2);
   expect(floor_1).toBe(1.0);
   expect(floor_2).toBe(-2.0);
+});
+
+test("getCeil", () => {
+  const float_1 = 1.3
+  const float_2 = -1.3
+  const ceil_1 = getCeil(float_1);
+  const ceil_2 = getCeil(float_2);
+  expect(ceil_1).toBe(2.0);
+  expect(ceil_2).toBe(-1.0);
 });
