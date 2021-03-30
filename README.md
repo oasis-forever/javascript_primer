@@ -60,16 +60,19 @@ Ran all test suites.
 To execuate a unittest, run `npx jest ./__test__/{filename}_test.js`.
 
 ```bash
-$ npx jest ./__tests__/variables_and_statements.test.js
-PASS  __tests__/variables_and_statements.test.js (14.711 s)
- ✓ State constants (2 ms)
- ✓ Override a defined constant (14 ms)
- ✓ Override a defined let (1 ms)
- ✓ Override a defined variable
+$ npx jest ./__tests__/math_test.js
+PASS  __tests__/math_test.js (12.02 s)
+ ✓ getRandom (2 ms)
+ ✓ getMax
+ ✓ getMin
+ ✓ getFloor (1 ms)
+ ✓ getCeil
+ ✓ getRound (1 ms)
+ ✓ getTrunc
 
 Test Suites: 1 passed, 1 total
-Tests:       4 passed, 4 total
+Tests:       7 passed, 7 total
 Snapshots:   0 total
-Time:        30.508 s
-Ran all test suites matching /__tests__\/variables_and_statements.test.js/i.
+Time:        24.915 s
+Ran all test suites matching /__tests__\/math_test.js/i.
 ```
