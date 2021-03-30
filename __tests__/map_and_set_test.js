@@ -7,7 +7,8 @@ import {
   getValues,
   getEntries,
   ShoppingCart,
-  setWeakMap
+  setWeakMap,
+  EventEmittter
 } from "../lib/map_and_set";
 
 test("newMap", () => {
@@ -91,4 +92,14 @@ test("setWeakMap", () => {
   expect(map.get(obj)).toBe("value");
   obj = null;
   expect(map.get(obj)).toBe(undefined);
+});
+
+test("EventEmittter", () => {
+  let eventEmitter = new EventEmittter();
+  const lisners = eventEmitter.addListener(() => {
+    return "An event is triggered.";
+  });
+  expect(eventEmitter instanceof EventEmittter).toBe(true);
+  eventEmitter = null;
+  expect(eventEmitter instanceof EventEmittter).toBe(false);
 });
