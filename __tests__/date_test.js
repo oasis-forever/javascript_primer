@@ -2,7 +2,8 @@
 
 import {
   getDate,
-  formatEnglishDate
+  formatEnglishDate,
+  getHourInUTC
 } from "../lib/date";
 
 test("newDate", () => {
@@ -26,4 +27,10 @@ test("formatEnglishDate", () => {
   const date = new Date("2006-01-02T15:04:05.999");
   const enDate = formatEnglishDate(date);
   expect(enDate).toBe("02 Jan 2006");
+});
+
+test("getHourInUTC", () => {
+  const date = new Date("2006-01-02T15:04:05.999");
+  const hourInUTC = getHourInUTC(date);
+  expect(hourInUTC).toBe(6);
 });
