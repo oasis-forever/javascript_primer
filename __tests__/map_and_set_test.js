@@ -9,7 +9,8 @@ import {
   ShoppingCart,
   setWeakMap,
   EventEmittter,
-  newSet
+  newSet,
+  getSetValues
 } from "../lib/map_and_set";
 
 test("newMap", () => {
@@ -118,4 +119,9 @@ test("newSet", () => {
   set.clear();
   expect(set.size).toBe(0);
 });
+
+test("getSetValues", () => {
+  const entry = ["Elem1", "Elem2", "Elem2", "Elem3", "Elem3"];
+  const vals = getSetValues(entry);
+  expect(vals).toStrictEqual(["Elem1", "Elem2", "Elem3"]);
 });
