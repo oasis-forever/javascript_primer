@@ -109,4 +109,13 @@ test("newSet", () => {
   const entry = ["Elem1", "Elem2", "Elem2", "Elem3", "Elem3"];
   const set = newSet(entry);
   expect(set.size).toBe(3);
+  set.add("Elem4");
+  expect(set.size).toBe(4);
+  set.add("Elem3");
+  expect(set.size).toBe(4);
+  set.delete("Elem1");
+  expect(set.size).toBe(3);
+  set.clear();
+  expect(set.size).toBe(0);
+});
 });
