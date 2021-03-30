@@ -6,7 +6,8 @@ import {
   getMin,
   getFloor,
   getCeil,
-  getRound
+  getRound,
+  getTrunc
 } from "../lib/math";
 
 test("getRandom", () => {
@@ -54,4 +55,13 @@ test("getRound", () => {
   expect(round_1).toBe(1.0);
   expect(round_2).toBe(2.0);
   expect(round_3).toBe(-1.0);
+});
+
+test("getTrunc", () => {
+  const float_1 = 1.3
+  const float_2 = -1.3
+  const trunc_1 = getTrunc(float_1);
+  const trunc_2 = getTrunc(float_2);
+  expect(trunc_1).toBe(1.0);
+  expect(trunc_2).toBe(-1.0);
 });
