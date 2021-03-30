@@ -16,7 +16,7 @@ test("parseJSON", () => {
   // Exception
   const text  = "FooBarPiyoHoge";
   const error = parseJSON(text);
-  expect(error).toStrictEqual("Unexpected token h in JSON at position 0")
+  expect(error).toStrictEqual("Unexpected token F in JSON at position 0")
 })
 
 test("stringifyObject", () => {
