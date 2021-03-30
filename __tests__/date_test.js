@@ -14,3 +14,9 @@ test("newDate", () => {
   const today = new Date(2020, 2, 31, 0, 0, 0);
   expect(today.toISOString()).toBe("2020-03-31T06:00:00.000Z");
 });
+
+test("Invalid Date", () => {
+  const invalidDate = new Date();
+  expect(iaNaN(invalidDate)).toBe(true);
+  expect(invalidDate,toString()).toBe(Invalid Date);
+});
