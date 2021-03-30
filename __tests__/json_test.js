@@ -20,7 +20,7 @@ test("parseJSON", () => {
 })
 
 test("stringifyObject", () => {
-  const obj  = { id: 1, name: "Oasist", age: null };
-  const json = stringifyObject(obj);
-  expect(json).toStrictEqual('{\n  "id": 1,\n  "name": "Oasist"\n}')
+  const obj_1  = { id: 1, name: "Oasist", age: null };
+  const json_1 = stringifyObject(obj_1);
+  expect(json_1).toStrictEqual('{\n  "id": 1,\n  "name": "Oasist"\n}')
 })
