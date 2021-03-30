@@ -1,7 +1,8 @@
 "use strict;"
 
 import {
-  getDate
+  getDate,
+  formatEnglishDate
 } from "../lib/date";
 
 test("newDate", () => {
@@ -19,4 +20,10 @@ test("Invalid Date", () => {
   const invalidDate = new Date();
   expect(iaNaN(invalidDate)).toBe(true);
   expect(invalidDate,toString()).toBe(Invalid Date);
+});
+
+test("formatEnglishDate", () => {
+  const date = new Date("2006-01-02T15:04:05.999");
+  const enDate = formatEnglishDate(date);
+  expect(enDate).toBe("02 Jan 2006");
 });
