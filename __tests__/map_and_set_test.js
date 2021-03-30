@@ -6,7 +6,8 @@ import {
   getKeys,
   getValues,
   getEntries,
-  ShoppingCart
+  ShoppingCart,
+  setWeakMap
 } from "../lib/map_and_set";
 
 test("newMap", () => {
@@ -82,4 +83,12 @@ test("shoppingCart", () => {
   expect(sum).toBe(550);
   const itemsInCart = shoppingCart.getItemsInCart()
   expect(itemsInCart).toBe("Apple: 2, Orange: 1");
+});
+
+test("setWeakMap", () => {
+  let obj = {};
+  const map = setWeakMap(obj, "value");
+  expect(map.get(obj)).toBe("value");
+  obj = null;
+  expect(map.get(obj)).toBe(undefined);
 });
