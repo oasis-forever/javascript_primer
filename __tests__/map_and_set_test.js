@@ -8,7 +8,8 @@ import {
   getEntries,
   ShoppingCart,
   setWeakMap,
-  EventEmittter
+  EventEmittter,
+  newSet
 } from "../lib/map_and_set";
 
 test("newMap", () => {
@@ -102,4 +103,10 @@ test("EventEmittter", () => {
   expect(eventEmitter instanceof EventEmittter).toBe(true);
   eventEmitter = null;
   expect(eventEmitter instanceof EventEmittter).toBe(false);
+});
+
+test("newSet", () => {
+  const entry = ["Elem1", "Elem2", "Elem2", "Elem3", "Elem3"];
+  const set = newSet(entry);
+  expect(set.size).toBe(3);
 });
