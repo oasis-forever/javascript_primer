@@ -26,5 +26,8 @@
   "bugs": {
     "url": "https://github.com/oasis-forever/javascript_primer/issues"
   },
-  "homepage": "https://github.com/oasis-forever/javascript_primer#readme"
+  "homepage": "https://github.com/oasis-forever/javascript_primer#readme",
+  "dependencies": {
+    "commander": "^7.2.0"
+  }
 }
