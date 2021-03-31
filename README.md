@@ -60,19 +60,13 @@ Ran all test suites.
 To execuate a unittest, run `npx jest ./__test__/{filename}_test.js`.
 
 ```bash
-$ npx jest ./__tests__/math_test.js
-PASS  __tests__/math_test.js (12.02 s)
- ✓ getRandom (2 ms)
- ✓ getMax
- ✓ getMin
- ✓ getFloor (1 ms)
- ✓ getCeil
- ✓ getRound (1 ms)
- ✓ getTrunc
+$ npx jest ./basic/__tests__/hello_test.js
+PASS  basic/__tests__/hello_test.js (15.283 s)
+ ✓ hello (2 ms)
 
 Test Suites: 1 passed, 1 total
-Tests:       7 passed, 7 total
+Tests:       1 passed, 1 total
 Snapshots:   0 total
-Time:        24.915 s
-Ran all test suites matching /__tests__\/math_test.js/i.
+Time:        38.076 s
+Ran all test suites matching /basic\/__tests__\/hello_test.js/i.
 ```
