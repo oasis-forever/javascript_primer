@@ -70,3 +70,13 @@ Snapshots:   0 total
 Time:        38.076 s
 Ran all test suites matching /basic\/__tests__\/hello_test.js/i.
 ```
+
+## 5. Ajax
+
+To setup a local server, run the following command and access `http://localhost:3000`.
+\* To use another port, assign one with `--port [port]` option.
+
+```bash
+$ cd ajax
+$ npx @js-primer/local-server
+```
