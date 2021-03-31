@@ -1,16 +1,16 @@
 "use strict;"
 
-// const getElementContent = (elem) => {
-//   const head_1 = document.querySelector(elem);
-//   const headText = head_1.textContent;
-//   return headText;
-// };
-//
-// const createButton = (elem, buttonText) => {
-//   const button = document.createElement(elem);
-//   button.textContent = buttonText;
-//   document.body.appendChild(button);
-// };
+const getElementContent = (elem) => {
+  const head_1 = document.querySelector(elem);
+  const headText = head_1.textContent;
+  return headText;
+};
+
+const createButton = (elem, buttonText) => {
+  const button = document.createElement(elem);
+  button.textContent = buttonText;
+  document.body.appendChild(button);
+};
 
 const main = async () => {
   try {
