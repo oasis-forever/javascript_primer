@@ -62,14 +62,14 @@ const escapeHTML = (strs, ...vals) => {
   return strs.reduce((result, str, i) => {
     const val = vals[i -1];
     if (typeof val === "string") {
-      return result + excapeSpecialChars(val) + str;
+      return result + escapeSpecialChars(val) + str;
     } else {
       return result + String(val) + str;
     }
   });
 };
 
-const excapeSpecialChars = (str) => {
+const escapeSpecialChars = (str) => {
   return str
   .replace(/&/g, "&amp;")
   .replace(/</g, "&lt;")
