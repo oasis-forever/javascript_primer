@@ -1,3 +1,5 @@
+"use strict;"
+
 const program = require("commander");
 const fs = require("fs");
 const md2html = require("./md2html")
