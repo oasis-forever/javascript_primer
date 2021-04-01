@@ -80,3 +80,33 @@ To setup a local server, run the following command and access `http://localhost:
 $ cd ajax
 $ npx @js-primer/local-server
 ```
+
+## 6. Node.js
+
+### 6-1. Setup local server
+To setup a local server, run the following command and access `http://localhost:3000`.
+\* To use another port, assign one with `--port [port]` option.
+
+```bash
+$ cd nodejs
+$ npx @js-primer/local-server
+```
+
+### 6-2. Unit test
+
+To execute unit tests, run the following command.
+
+```bash
+$ npm test
+```
+
+## 7. Todo App
+
+### 7-1. Setup local server
+To setup a local server, run the following command and access `http://localhost:3000`.
+\* To use another port, assign one with `--port [port]` option.
+
+```bash
+$ cd todo_app
+$ npx @js-primer/local-server
+```
