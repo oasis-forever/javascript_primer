@@ -21,8 +21,11 @@ const TodoListModel = class extends EventEmitter {
   emitChange() {
     this.emit("change");
   }
-  addTodo(item) {
-    this.items.push(item);
+  addTodo(todoItem) {
+    if (todoItem.isEmptyTitle()) {
+      return;
+    }
+    this.items.push(todoItem);
     this.emitChange();
   }
   updateTodo({ id, completed }) {
