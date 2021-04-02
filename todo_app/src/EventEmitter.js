@@ -20,13 +20,13 @@ const EventEmitter = class {
       listener.call(this);
     });
   }
-  removeListener(eventType, listener) {
+  removeEventListener(eventType, listener) {
     const listenerSet = this._listeners.get(eventType);
     if (!listenerSet) {
       return;
     }
     listenerSet.forEach(ownListener => {
-      if (ownListener) {
+      if (ownListener === listener) {
         listenerSet.delete(listener);
       }
     });

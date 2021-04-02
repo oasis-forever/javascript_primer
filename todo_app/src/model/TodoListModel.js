@@ -18,6 +18,9 @@ const TodoListModel = class extends EventEmitter {
   onChange(listener) {
     this.addEventListener("change", listener);
   }
+  offChange(listener) {
+    this.removeEventListener("change", listener);
+  }
   emitChange() {
     this.emit("change");
   }

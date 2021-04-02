@@ -50,6 +50,10 @@ const App = class {
     this.todoListModel.onChange(this.handleChange);
     this.formElement.addEventListener("submit", this.handleSubmit);
   }
+  unmount() {
+    this.todoListModel.onChange(this.handleChange);
+    this.formElement.addEventListener("submit", this.handleSubmit);
+  }
 };
 
 export {
