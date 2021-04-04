@@ -51,7 +51,7 @@ const App = class {
     this.formElement.addEventListener("submit", this.handleSubmit);
   }
   unmount() {
-    this.todoListModel.onChange(this.handleChange);
+    this.todoListModel.offChange(this.handleChange);
     this.formElement.addEventListener("submit", this.handleSubmit);
   }
 };
