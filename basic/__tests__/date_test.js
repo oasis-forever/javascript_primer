@@ -14,13 +14,13 @@ test("newDate", () => {
   const dateInTokyo = new Date("2006-01-02T15:04:05.999");
   expect(dateInTokyo.toISOString()).toBe("2006-01-02T06:04:05.999Z");
   const today = new Date(2020, 2, 31, 0, 0, 0);
-  expect(today.toISOString()).toBe("2020-03-31T06:00:00.000Z");
+  expect(today.toISOString()).toBe("2020-03-30T15:00:00.000Z");
 });
 
 test("Invalid Date", () => {
-  const invalidDate = new Date();
-  expect(iaNaN(invalidDate)).toBe(true);
-  expect(invalidDate,toString()).toBe(Invalid Date);
+  const invalidDate = new Date("Invalid Date");
+  expect(isNaN(invalidDate)).toBe(true);
+  expect(invalidDate.toString()).toBe("Invalid Date");
 });
 
 test("formatEnglishDate", () => {
@@ -32,5 +32,5 @@ test("formatEnglishDate", () => {
 test("getHourInUTC", () => {
   const date = new Date("2006-01-02T15:04:05.999");
   const hourInUTC = getHourInUTC(date);
-  expect(hourInUTC).toBe(6);
+  expect(hourInUTC).toBe("Hours in UTC: 6");
 });
