@@ -4,7 +4,8 @@
 const addInWhile1 = (init_val, max_val) => {
   let sum = 0;
   let num = init_val;
-  while (num <= max_val) {    sum += num;
+  while (num <= max_val) {
+    sum += num;
     num += 1;
   };
   return sum;
