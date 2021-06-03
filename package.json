@@ -7,14 +7,14 @@
     "lib": "lib"
   },
   "scripts": {
-      "test": "mocha nodejs/test/"
+    "test": "mocha nodejs/test/"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.13.13",
+    "@babel/core": "^7.14.3",
     "@babel/plugin-transform-modules-commonjs": "^7.13.8",
-    "@babel/preset-env": "^7.13.12",
+    "@babel/preset-env": "^7.14.4",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^26.6.3",
     "jest": "^26.6.3",
