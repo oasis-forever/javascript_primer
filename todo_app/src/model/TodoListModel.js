@@ -9,21 +9,27 @@ const TodoListModel = class extends EventEmitter {
     super();
     this.items = items;
   }
+
   getTotalCount() {
     return this.items.length;
   }
+
   getTodoItems() {
     return this.items;
   }
+
   onChange(listener) {
     this.addEventListener("change", listener);
   }
+
   offChange(listener) {
     this.removeEventListener("change", listener);
   }
+
   emitChange() {
     this.emit("change");
   }
+
   addTodo(todoItem) {
     if (todoItem.isEmptyTitle()) {
       return;
@@ -31,6 +37,7 @@ const TodoListModel = class extends EventEmitter {
     this.items.push(todoItem);
     this.emitChange();
   }
+
   updateTodo({ id, completed }) {
     const todoItem = this.items.find(todo => todo.id === id);
     if (!todoItem) {
@@ -39,6 +46,7 @@ const TodoListModel = class extends EventEmitter {
     todoItem.completed = completed;
     this.emitChange();
   }
+
   deleteTodo({ id }) {
     this.items = this.items.filter(todo => {
       return todo.id !== id;

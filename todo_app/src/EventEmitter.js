@@ -4,6 +4,7 @@ const EventEmitter = class {
   constructor() {
     this._listeners = new Map();
   }
+  
   addEventListener(eventType, listener) {
     if (!this._listeners.has(eventType)) {
       this._listeners.set(eventType, new Set());
@@ -11,6 +12,7 @@ const EventEmitter = class {
     const listenerSet = this._listeners.get(eventType);
     listenerSet.add(listener);
   }
+  
   emit(eventType) {
     const listenerSet = this._listeners.get(eventType);
     if (!listenerSet) {
@@ -20,6 +22,7 @@ const EventEmitter = class {
       listener.call(this);
     });
   }
+  
   removeEventListener(eventType, listener) {
     const listenerSet = this._listeners.get(eventType);
     if (!listenerSet) {

@@ -15,9 +15,11 @@ const app = new App({
   todoCountElement,
   todoListContainerElement
 });
+
 window.addEventListener("load", () => {
   app.mount();
 });
+
 window.addEventListener("unload", () => {
   app.unmount();
 });

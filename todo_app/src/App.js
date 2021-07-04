@@ -16,15 +16,19 @@ const App = class {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
+
   handleAdd(title) {
     this.todoListModel.addTodo(new TodoItemModel({ title, completed: false }));
   }
+
   handleUpdate({ id, completed }) {
     this.todoListModel.updateTodo({ id, completed });
   }
+
   handleDelete({ id }) {
     this.todoListModel.deleteTodo({ id });
   }
+
   handleChange() {
     const todoCountElement = this.todoCountElement;
     const todoListContainerElement = this.todoListContainerElement;
@@ -40,16 +44,19 @@ const App = class {
     render(todoListElement, todoListContainerElement);
     todoCountElement.textContent = `Number of Todos: ${this.todoListModel.getTotalCount()}`;
   }
+  
   handleSubmit(event) {
     event.preventDefault();
     const inputElement = this.formInputElement;
     this.handleAdd(inputElement.value);
     inputElement.value = "";
   }
+  
   mount() {
     this.todoListModel.onChange(this.handleChange);
     this.formElement.addEventListener("submit", this.handleSubmit);
   }
+  
   unmount() {
     this.todoListModel.offChange(this.handleChange);
     this.formElement.addEventListener("submit", this.handleSubmit);
